@@ -1,0 +1,153 @@
+{
+  "metadata": {
+    "title": "Accessible Forms",
+    "description": "W3C WAI form tutorial topics: labeling, grouping, instructions, validation, notifications, and custom controls.",
+    "accentColor": "#2563C4",
+    "bgColor": "#FAF7F2"
+  },
+  "rules": [
+    {
+      "label": "Use <label> with htmlFor — never placeholder-only",
+      "good": "SR announces label on focus",
+      "bad": "Placeholder disappears on input",
+      "code": "// ✓ Correct\n<label htmlFor=\"email\">Email address</label>\n<input id=\"email\" type=\"email\" />\n\n// ✗ Wrong — placeholder is not a label\n<input type=\"email\" placeholder=\"Email address\" />"
+    },
+    {
+      "label": "Use useId() — never hardcode IDs",
+      "good": "Collision-free across all component instances",
+      "bad": "id='email' breaks when component renders twice",
+      "code": "import { useId } from \"react\";\n\nfunction EmailField() {\n  const id = useId(); // e.g. \":r3:\"\n  return (\n    <>\n      <label htmlFor={id}>Email</label>\n      <input id={id} type=\"email\" />\n    </>\n  );\n}"
+    },
+    {
+      "label": "Wrap radio & checkbox groups in <fieldset>/<legend>",
+      "good": "Group name announced with every option",
+      "bad": "Floating inputs with no group context",
+      "code": "<fieldset>\n  <legend>Output format</legend>\n  <label><input type=\"radio\" name=\"fmt\" /> Text</label>\n  <label><input type=\"radio\" name=\"fmt\" /> CSV</label>\n</fieldset>\n\n// Also for checkboxes\n<fieldset>\n  <legend>I want to receive</legend>\n  <label><input type=\"checkbox\" /> Newsletter</label>\n</fieldset>"
+    },
+    {
+      "label": "Group related text fields with role=\"group\"",
+      "good": "Shipping vs Billing clearly distinct to SR",
+      "bad": "Two 'Name' fields with no distinguishing context",
+      "code": "<div role=\"group\" aria-labelledby=\"ship-head\">\n  <div id=\"ship-head\">Shipping Address</div>\n  <label htmlFor=\"ship-name\">\n    <span className=\"sr-only\">Shipping </span>Name\n  </label>\n  <input id=\"ship-name\" type=\"text\" />\n</div>"
+    },
+    {
+      "label": "Use <optgroup> in <select> for grouped options",
+      "good": "Group labels read aloud by screen readers",
+      "bad": "Flat list of indistinguishable options",
+      "code": "<select>\n  <optgroup label=\"Physics I\">\n    <option>Lecture 01: Powers of Ten</option>\n  </optgroup>\n  <optgroup label=\"Physics II\">\n    <option>Lecture 01: Electric Field</option>\n  </optgroup>\n</select>"
+    },
+    {
+      "label": "Place overall instructions BEFORE the <form>",
+      "good": "Screen readers in Forms Mode still read it",
+      "bad": "Instructions inside <form> — skipped in Forms Mode",
+      "code": "{/* Outside <form>: screen readers read this in browse mode */}\n<div>\n  <ul>\n    <li>Fields marked * are required.</li>\n    <li>Email format: you@example.com</li>\n  </ul>\n</div>\n\n<form>…</form>"
+    },
+    {
+      "label": "Link hints with aria-describedby",
+      "good": "Hint is read after label when field is focused",
+      "bad": "Hint text visible but ignored by assistive tech",
+      "code": "<label htmlFor=\"email\">Email</label>\n<span id=\"email-hint\">We'll never share it.</span>\n<input\n  id=\"email\"\n  aria-describedby=\"email-hint\"\n  type=\"email\"\n/>"
+    },
+    {
+      "label": "Show error summary & move focus to it on submit",
+      "good": "SR user immediately hears all errors",
+      "bad": "Errors shown by fields but focus stays on button",
+      "code": "const errorSummaryRef = useRef(null);\n\nfunction handleSubmit(e) {\n  e.preventDefault();\n  const errs = validate();\n  setErrors(errs);\n  // Move focus to error summary so SR reads it\n  setTimeout(() => errorSummaryRef.current?.focus(), 50);\n}\n\n<div ref={errorSummaryRef} tabIndex={-1} role=\"alert\">\n  <h2>Please fix 2 errors:</h2>\n  <ul>\n    <li><a href=\"#name-id\">Name is required</a></li>\n  </ul>\n</div>"
+    },
+    {
+      "label": "Scroll to & focus the first invalid field",
+      "good": "Sighted keyboard users land on the problem immediately",
+      "bad": "Page stays at submit button while errors are above",
+      "code": "function handleSubmit(e) {\n  e.preventDefault();\n  const errs = validate();\n  setErrors(errs);\n  if (Object.keys(errs).length > 0) {\n    // 1. Focus error summary for screen readers\n    errorSummaryRef.current?.focus();\n    // 2. Scroll first invalid field into view for sighted users\n    const firstErrRef =\n      errs.name  ? nameRef  :\n      errs.email ? emailRef :\n      errs.role  ? roleRef  : agreeRef;\n    firstErrRef.current?.scrollIntoView({\n      behavior: \"smooth\",\n      block: \"center\",\n    });\n  }\n}"
+    },
+    {
+      "label": "Set aria-invalid and link error via aria-describedby",
+      "good": "Field announces 'invalid' + error text on focus",
+      "bad": "Red border — invisible to screen readers",
+      "code": "<input\n  aria-invalid={hasError}\n  aria-describedby={hasError ? \"email-error\" : undefined}\n/>\n<span id=\"email-error\" role=\"alert\">\n  <span aria-hidden=\"true\">⚠ </span> Enter a valid email.\n</span>"
+    },
+    {
+      "label": "Announce outcomes with live regions",
+      "good": "Screen readers catch async state changes",
+      "bad": "Silent UI update after submit",
+      "code": "// Polite: waits for current speech to finish\n<div role=\"status\" aria-live=\"polite\">\n  Form submitted successfully!\n</div>\n\n// Assertive: interrupts immediately (use sparingly)\n<div role=\"alert\" aria-live=\"assertive\">\n  Session expired. Please log in again.\n</div>"
+    },
+    {
+      "label": "Custom controls need role + aria state + keyboard",
+      "good": "Behaves like a native control for all users",
+      "bad": "div onClick — no keyboard, no SR announcement",
+      "code": "// Toggle switch\n<button role=\"switch\" aria-checked={isOn}\n  onClick={() => setIsOn(v => !v)}>\n  <span className=\"sr-only\">{isOn ? \"On\" : \"Off\"}</span>\n</button>\n\n// Star rating\n<div role=\"radiogroup\" aria-label=\"Rate experience\">\n  <button role=\"radio\" aria-checked={rating === 3}\n    aria-label=\"3 stars\"\n    onKeyDown={e => {\n      if (e.key === \"ArrowRight\") setRating(r => r + 1);\n      if (e.key === \"ArrowLeft\")  setRating(r => r - 1);\n    }}>★</button>\n</div>"
+    },
+    {
+      "label": "Never rely on color alone for errors",
+      "good": "Icon + text + color = 3 distinct signals",
+      "bad": "Red border is the only error indicator",
+      "code": "// ✓ Three signals: icon, text, and color\n<span style={{ color: \"#c47d00\" }}>\n  <span aria-hidden=\"true\">⚠ </span>{\" \"}\n  Email is required.\n</span>\n\n// Mark required visually AND for screen readers\n<span aria-hidden=\"true\">*</span>\n<span className=\"sr-only\">(required)</span>"
+    }
+  ],
+  "checklist": [
+    {
+      "item": "Every input has a <label> linked via htmlFor/id"
+    },
+    {
+      "item": "IDs generated with useId() — no hardcoded duplicates"
+    },
+    {
+      "item": "Radio & checkbox groups wrapped in <fieldset>/<legend>"
+    },
+    {
+      "item": "Related text fields grouped with role=\"group\" + aria-labelledby"
+    },
+    {
+      "item": "Selects use <optgroup> for grouped options"
+    },
+    {
+      "item": "Overall instructions placed BEFORE the <form> element"
+    },
+    {
+      "item": "Hints linked to inputs via aria-describedby"
+    },
+    {
+      "item": "Required fields: aria-required + visual asterisk + sr-only text"
+    },
+    {
+      "item": "Failed submit: error summary rendered with role=\"alert\""
+    },
+    {
+      "item": "Failed submit: focus programmatically moved to error summary"
+    },
+    {
+      "item": "Failed submit: first invalid field scrolled into view"
+    },
+    {
+      "item": "Error summary links point to each invalid field"
+    },
+    {
+      "item": "Each invalid field has aria-invalid + aria-describedby linking its error"
+    },
+    {
+      "item": "Success state announced via role=\"status\" + aria-live=\"polite\""
+    },
+    {
+      "item": "Urgent errors use role=\"alert\" + aria-live=\"assertive\""
+    },
+    {
+      "item": "Custom controls have role, aria-checked/selected, and keyboard handlers"
+    },
+    {
+      "item": "Errors shown with icon + text + color — never color alone"
+    },
+    {
+      "item": "Focus indicators are visible (never outline: none)"
+    },
+    {
+      "item": "Placeholder text is supplementary only, never the sole label"
+    }
+  ],
+  "demos": [
+    "labeling",
+    "grouping",
+    "customControls",
+    "validation"
+  ]
+}
