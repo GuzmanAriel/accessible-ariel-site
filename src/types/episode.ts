@@ -15,8 +15,6 @@ export interface EpisodeMetadata {
   title: string;
   subtitle?: string;
   description: string;
-  accentColor: string;
-  bgColor: string;
 }
 
 export interface Episode {

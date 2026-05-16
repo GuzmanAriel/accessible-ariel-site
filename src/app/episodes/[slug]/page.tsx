@@ -158,22 +158,9 @@ export default async function Page({
   const { metadata, rules, checklist, demos } = episode;
 
   return (
-    <div
-      style={{
-        minHeight:     "100vh",
-        background:    metadata.bgColor,
-        paddingBottom: 60,
-      }}
-    >
+    <div className="episode-wrapper">
       {/* ── Header ── */}
-      <header
-        style={{
-          background: metadata.accentColor,
-          padding:    "32px 24px 28px",
-          position:   "relative",
-          overflow:   "hidden",
-        }}
-      >
+      <header className="episode-header">
         {/* Decorative circles */}
         <div
           aria-hidden="true"

@@ -1,0 +1,21 @@
+// ─── Global tokens ────────────────────────────────────────────────────────────
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --brand-blue:   #2563C4;
+  --brand-yellow: #F5B820;
+  --brand-cream:  #FAF7F2;
+  --ink:          #0f2346;
+  --muted:        #5a6a8a;
+  --border:       #c8d8f0;
+  --episode-bg:   #e4f1ff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}

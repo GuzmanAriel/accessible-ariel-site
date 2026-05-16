@@ -1,0 +1,12 @@
+.episode-wrapper {
+  min-height:     100vh;
+  padding-bottom: 60px;
+  background:     var(--episode-bg);
+}
+
+.episode-header {
+  background: var(--brand-blue);
+  padding:    32px 24px 28px;
+  position:   relative;
+  overflow:   hidden;
+}

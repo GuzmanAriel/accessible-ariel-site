@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Syne, DM_Sans, Source_Code_Pro } from "next/font/google";
-import "./globals.scss";
+import "@/styles/globals.scss";
 
 const syne = Syne({
   variable: "--font-syne",
