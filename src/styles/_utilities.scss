@@ -1,15 +1,15 @@
 // ─── Screen-reader only ───────────────────────────────────────────────────────
 
 .sr-only {
-  position:   absolute;
-  width:      1px;
-  height:     1px;
-  padding:    0;
-  margin:     -1px;
-  overflow:   hidden;
-  clip:       rect(0, 0, 0, 0);
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border:     0;
+  border: 0;
 }
 
 // ─── Focus ring ───────────────────────────────────────────────────────────────
@@ -19,13 +19,19 @@ input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
 a:focus-visible {
-  outline:        3px solid var(--brand-yellow) !important;
+  outline: 3px solid var(--brand-yellow) !important;
   outline-offset: 2px !important;
 }
 
 // ─── Placeholder ──────────────────────────────────────────────────────────────
 
 ::placeholder {
-  color:   #767676;
+  color: #767676;
   opacity: 1;
+}
+
+.container {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 0 20px;
 }

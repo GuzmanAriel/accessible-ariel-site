@@ -4,7 +4,7 @@ import { useState, useId } from "react";
 import type { CSSProperties } from "react";
 
 const labelStyle: CSSProperties = {
-  fontFamily: "Syne, sans-serif",
+  fontFamily: "var(--font-heading)",
   fontWeight: 700,
   fontSize: 13,
   letterSpacing: "0.08em",
@@ -17,7 +17,7 @@ const inputStyle = (hasErr?: boolean): CSSProperties => ({
   borderRadius: 7,
   border: `1.5px solid ${hasErr ? "#c47d00" : "var(--border)"}`,
   background: "#fff",
-  fontFamily: "DM Sans, sans-serif",
+  fontFamily: "var(--font-body)",
   fontSize: 14,
   color: "var(--ink)",
   outline: "none",
@@ -27,7 +27,7 @@ const inputStyle = (hasErr?: boolean): CSSProperties => ({
 });
 
 const sectionHintStyle: CSSProperties = {
-  fontFamily: "DM Sans, sans-serif",
+  fontFamily: "var(--font-body)",
   fontSize: 12,
   color: "var(--brand-blue)",
   fontStyle: "normal",
@@ -61,7 +61,7 @@ export default function GroupingDemo() {
           <legend style={labelStyle}>Output format</legend>
           <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 8 }}>
             {[["txt", "Text file"], ["csv", "CSV file"], ["html", "HTML file"]].map(([val, lbl]) => (
-              <label key={val} style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "DM Sans, sans-serif", fontSize: 14, cursor: "pointer" }}>
+              <label key={val} style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "var(--font-body)", fontSize: 14, cursor: "pointer" }}>
                 <input
                   type="radio"
                   name="fmt"
@@ -84,7 +84,7 @@ export default function GroupingDemo() {
           <legend style={labelStyle}>I want to receive</legend>
           <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 8 }}>
             {[["newsletter", "The weekly newsletter"], ["offers", "Offers from the company"], ["partners", "Partner offers"]].map(([key, lbl]) => (
-              <label key={key} style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "DM Sans, sans-serif", fontSize: 14, cursor: "pointer" }}>
+              <label key={key} style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "var(--font-body)", fontSize: 14, cursor: "pointer" }}>
                 <input
                   type="checkbox"
                   checked={notif[key]}
@@ -134,13 +134,13 @@ export default function GroupingDemo() {
               <div id={`${key}-head`} style={{ ...labelStyle, marginBottom: 12 }}>{legend}</div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                  <label htmlFor={`${key}-name`} style={{ fontFamily: "DM Sans, sans-serif", fontSize: 13, color: "var(--muted)" }}>
+                  <label htmlFor={`${key}-name`} style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "var(--muted)" }}>
                     <span className="sr-only">{legend} </span>Name
                   </label>
                   <input id={`${key}-name`} type="text" autoComplete={`${key} name`} style={inputStyle()} />
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                  <label htmlFor={`${key}-street`} style={{ fontFamily: "DM Sans, sans-serif", fontSize: 13, color: "var(--muted)" }}>Street</label>
+                  <label htmlFor={`${key}-street`} style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "var(--muted)" }}>Street</label>
                   <input id={`${key}-street`} type="text" autoComplete={`${key} street-address`} style={inputStyle()} />
                 </div>
               </div>

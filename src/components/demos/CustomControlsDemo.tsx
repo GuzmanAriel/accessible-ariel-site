@@ -13,7 +13,7 @@ export default function CustomControlsDemo() {
 
       {/* Star rating */}
       <div>
-        <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, color: "var(--brand-blue)", fontStyle: "normal", fontWeight: 700, margin: "0 0 10px" }}>
+        <p style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "var(--brand-blue)", fontStyle: "normal", fontWeight: 700, margin: "0 0 10px" }}>
           Star rating → role=&quot;radiogroup&quot; + role=&quot;radio&quot; + arrow key navigation
         </p>
         <div role="radiogroup" aria-label="Rate your experience" style={{ display: "flex", gap: 4 }}>
@@ -52,7 +52,7 @@ export default function CustomControlsDemo() {
         <p
           role="status"
           aria-live="polite"
-          style={{ fontFamily: "DM Sans, sans-serif", fontSize: 13, color: "var(--brand-blue)", marginTop: 6, minHeight: 20 }}
+          style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "var(--brand-blue)", marginTop: 6, minHeight: 20 }}
         >
           {rating > 0 ? `You rated: ${rating} star${rating > 1 ? "s" : ""}` : ""}
         </p>
@@ -60,7 +60,7 @@ export default function CustomControlsDemo() {
 
       {/* Toggle switch */}
       <div>
-        <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, color: "var(--brand-blue)", fontStyle: "normal", fontWeight: 700, margin: "0 0 10px" }}>
+        <p style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "var(--brand-blue)", fontStyle: "normal", fontWeight: 700, margin: "0 0 10px" }}>
           Toggle switch → role=&quot;switch&quot; + aria-checked
         </p>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -97,7 +97,7 @@ export default function CustomControlsDemo() {
             />
             <span className="sr-only">{toggle ? "On" : "Off"}</span>
           </button>
-          <label htmlFor={toggleId} style={{ fontFamily: "DM Sans, sans-serif", fontSize: 14, color: "var(--ink)", cursor: "pointer" }}>
+          <label htmlFor={toggleId} style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "var(--ink)", cursor: "pointer" }}>
             Dark mode {toggle ? "(enabled)" : "(disabled)"}
           </label>
         </div>

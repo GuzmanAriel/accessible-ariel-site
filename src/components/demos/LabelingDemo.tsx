@@ -4,7 +4,7 @@ import { useId } from "react";
 import type { CSSProperties } from "react";
 
 const labelStyle: CSSProperties = {
-  fontFamily: "Syne, sans-serif",
+  fontFamily: "var(--font-heading)",
   fontWeight: 700,
   fontSize: 13,
   letterSpacing: "0.08em",
@@ -17,7 +17,7 @@ const inputStyle = (hasErr?: boolean): CSSProperties => ({
   borderRadius: 7,
   border: `1.5px solid ${hasErr ? "#c47d00" : "var(--border)"}`,
   background: "#fff",
-  fontFamily: "DM Sans, sans-serif",
+  fontFamily: "var(--font-body)",
   fontSize: 14,
   color: "var(--ink)",
   outline: "none",
@@ -31,14 +31,14 @@ export default function LabelingDemo() {
   return (
     <div className="demo__labeling" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
       <div style={{ background: "#eef4ff", border: "1.5px solid var(--brand-blue)", borderRadius: 8, padding: 16 }}>
-        <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, color: "var(--brand-blue)", fontStyle: "normal", fontWeight: 700, margin: "0 0 10px" }}>✓ Correct</p>
+        <p style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "var(--brand-blue)", fontStyle: "normal", fontWeight: 700, margin: "0 0 10px" }}>✓ Correct</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
           <label htmlFor={goodId} style={labelStyle}>Email address</label>
           <input id={goodId} type="email" autoComplete="email" style={inputStyle()} placeholder="you@example.com" />
         </div>
       </div>
       <div style={{ background: "#fff8f0", border: "1.5px solid #c47d00", borderRadius: 8, padding: 16 }}>
-        <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, color: "#c47d00", fontStyle: "normal", fontWeight: 700, margin: "0 0 10px" }}>✗ No label</p>
+        <p style={{ fontFamily: "var(--font-body)", fontSize: 12, color: "#c47d00", fontStyle: "normal", fontWeight: 700, margin: "0 0 10px" }}>✗ No label</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
           <div style={{ height: 21 }} aria-hidden="true" />
           <input

@@ -1,0 +1,15 @@
+// ─── Breakpoints ──────────────────────────────────────────────────────────────
+// Usage: @use '../breakpoints' as b;
+//
+//  @media (min-width: b.$breakpoint-min-tablet) { ... }
+//  @media (max-width: b.$breakpoint-max-mobile) { ... }
+
+$breakpoint-max-mobile: 500px;
+$breakpoint-max-tablet: 768px;
+$breakpoint-max-tablet-lg: 1080px;
+$breakpoint-max-desktop: 1280px;
+
+$breakpoint-min-mobile: 500px;
+$breakpoint-min-tablet: 768px;
+$breakpoint-min-tablet-lg: 1080px;
+$breakpoint-min-desktop: 1280px;

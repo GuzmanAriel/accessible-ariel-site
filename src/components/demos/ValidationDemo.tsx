@@ -6,7 +6,7 @@ import type { CSSProperties, ReactNode } from "react";
 // ─── Shared styles ───────────────────────────────────────────────────────────
 
 const labelStyle: CSSProperties = {
-  fontFamily: "Syne, sans-serif",
+  fontFamily: "var(--font-heading)",
   fontWeight: 700,
   fontSize: 13,
   letterSpacing: "0.08em",
@@ -15,14 +15,14 @@ const labelStyle: CSSProperties = {
 };
 
 const hintStyle: CSSProperties = {
-  fontFamily: "DM Sans, sans-serif",
+  fontFamily: "var(--font-body)",
   fontSize: 12,
   color: "var(--muted)",
   fontStyle: "italic",
 };
 
 const errorStyle: CSSProperties = {
-  fontFamily: "DM Sans, sans-serif",
+  fontFamily: "var(--font-body)",
   fontSize: 12,
   color: "#c47d00",
   display: "flex",
@@ -35,7 +35,7 @@ const inputStyle = (hasErr?: boolean): CSSProperties => ({
   borderRadius: 7,
   border: `1.5px solid ${hasErr ? "#c47d00" : "var(--border)"}`,
   background: "#fff",
-  fontFamily: "DM Sans, sans-serif",
+  fontFamily: "var(--font-body)",
   fontSize: 14,
   color: "var(--ink)",
   outline: "none",
@@ -127,10 +127,10 @@ export default function ValidationDemo() {
       <div
         role="status"
         aria-live="polite"
-        style={{ padding: 24, background: "#eef4ff", border: "1.5px solid var(--brand-blue)", borderRadius: 10, fontFamily: "DM Sans, sans-serif", color: "var(--ink)", textAlign: "center" }}
+        style={{ padding: 24, background: "#eef4ff", border: "1.5px solid var(--brand-blue)", borderRadius: 10, fontFamily: "var(--font-body)", color: "var(--ink)", textAlign: "center" }}
       >
         <div style={{ fontSize: 32, marginBottom: 8 }}>✓</div>
-        <strong style={{ fontFamily: "Syne, sans-serif" }}>Registered successfully!</strong>
+        <strong style={{ fontFamily: "var(--font-heading)" }}>Registered successfully!</strong>
         <p style={{ margin: "8px 0 16px", color: "var(--muted)", fontSize: 13 }}>
           Announced automatically via <code>role=&quot;status&quot;</code> + <code>aria-live=&quot;polite&quot;</code>.
         </p>
@@ -140,7 +140,7 @@ export default function ValidationDemo() {
             setValues({ name: "", email: "", role: "", bio: "", agree: false });
             setErrors({});
           }}
-          style={{ background: "var(--brand-blue)", color: "#fff", border: "none", padding: "8px 20px", borderRadius: 6, cursor: "pointer", fontFamily: "Syne, sans-serif", fontWeight: 700 }}
+          style={{ background: "var(--brand-blue)", color: "#fff", border: "none", padding: "8px 20px", borderRadius: 6, cursor: "pointer", fontFamily: "var(--font-heading)", fontWeight: 700 }}
         >
           Reset
         </button>
@@ -154,8 +154,8 @@ export default function ValidationDemo() {
   return (
     <>
       {/* Overall instructions — OUTSIDE the form element */}
-      <div style={{ background: "#eef4ff", border: `1px solid var(--border)`, borderRadius: 8, padding: "12px 16px", marginBottom: 14, fontFamily: "DM Sans, sans-serif", fontSize: 13, color: "var(--ink)", lineHeight: 1.6 }}>
-        <strong style={{ fontFamily: "Syne, sans-serif", display: "block", marginBottom: 4 }}>Before you begin:</strong>
+      <div style={{ background: "#eef4ff", border: `1px solid var(--border)`, borderRadius: 8, padding: "12px 16px", marginBottom: 14, fontFamily: "var(--font-body)", fontSize: 13, color: "var(--ink)", lineHeight: 1.6 }}>
+        <strong style={{ fontFamily: "var(--font-heading)", display: "block", marginBottom: 4 }}>Before you begin:</strong>
         <ul style={{ margin: 0, paddingLeft: 18 }}>
           <li>Fields marked <span aria-hidden="true" style={{ color: "var(--brand-yellow)", fontWeight: 700 }}>*</span><span className="sr-only">with an asterisk</span> are required.</li>
           <li>Email must be a valid address, e.g. <code>you@example.com</code></li>
@@ -172,10 +172,10 @@ export default function ValidationDemo() {
           aria-labelledby="err-head"
           style={{ background: "#fff8f0", border: "1.5px solid #c47d00", borderRadius: 8, padding: "12px 16px", marginBottom: 14, outline: "none" }}
         >
-          <h3 id="err-head" style={{ fontFamily: "Syne, sans-serif", fontSize: 13, fontWeight: 800, color: "#c47d00", margin: "0 0 8px" }}>
+          <h3 id="err-head" style={{ fontFamily: "var(--font-heading)", fontSize: 13, fontWeight: 800, color: "#c47d00", margin: "0 0 8px" }}>
             ⚠ Please fix {Object.keys(errors).length} error{Object.keys(errors).length > 1 ? "s" : ""}:
           </h3>
-          <ul style={{ margin: 0, padding: 0, listStyle: "none", fontFamily: "DM Sans, sans-serif", fontSize: 13, display: "flex", flexDirection: "column", gap: 4 }}>
+          <ul style={{ margin: 0, padding: 0, listStyle: "none", fontFamily: "var(--font-body)", fontSize: 13, display: "flex", flexDirection: "column", gap: 4 }}>
             {Object.entries(errors).map(([key, msg]) => (
               <li key={key}><a href={`#${fieldAnchors[key]}`} style={{ color: "#c47d00" }}>{msg}</a></li>
             ))}
@@ -240,7 +240,7 @@ export default function ValidationDemo() {
             )}
             <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 8 }}>
               {["Developer", "Designer", "Product Manager", "Other"].map(r => (
-                <label key={r} style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "DM Sans, sans-serif", fontSize: 14, cursor: "pointer" }}>
+                <label key={r} style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "var(--font-body)", fontSize: 14, cursor: "pointer" }}>
                   <input
                     type="radio"
                     name="val-role"
@@ -284,7 +284,7 @@ export default function ValidationDemo() {
                 onChange={e => setValues(v => ({ ...v, agree: e.target.checked }))}
                 style={{ marginTop: 3, accentColor: "var(--brand-blue)", width: 16, height: 16 }}
               />
-              <label htmlFor={agreeId} style={{ fontFamily: "DM Sans, sans-serif", fontSize: 14, color: "var(--ink)", lineHeight: 1.5 }}>
+              <label htmlFor={agreeId} style={{ fontFamily: "var(--font-body)", fontSize: 14, color: "var(--ink)", lineHeight: 1.5 }}>
                 I agree to the <a href="#" style={{ color: "var(--brand-blue)" }}>terms and conditions</a>
                 <span aria-hidden="true" style={{ color: "var(--brand-yellow)" }}> *</span>
               </label>
@@ -298,7 +298,7 @@ export default function ValidationDemo() {
 
           <button
             type="submit"
-            style={{ background: "var(--brand-blue)", color: "#fff", border: "none", padding: "13px 24px", borderRadius: 8, fontFamily: "Syne, sans-serif", fontWeight: 700, fontSize: 15, cursor: "pointer", letterSpacing: "0.03em" }}
+            style={{ background: "var(--brand-blue)", color: "#fff", border: "none", padding: "13px 24px", borderRadius: 8, fontFamily: "var(--font-heading)", fontWeight: 700, fontSize: 15, cursor: "pointer", letterSpacing: "0.03em" }}
           >
             Register →
           </button>
