@@ -9,7 +9,7 @@ export default function CustomControlsDemo() {
   const toggleId = useId();
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+    <div className="demo__custom-controls" style={{ display: "flex", flexDirection: "column", gap: 24 }}>
 
       {/* Star rating */}
       <div>

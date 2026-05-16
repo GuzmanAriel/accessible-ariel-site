@@ -1,5 +1,6 @@
 @use 'variables';
 @use 'base';
 @use 'utilities';
-@use 'home';
-@use 'episode';
+@use 'pages/home';
+@use 'pages/episode';
+@use 'components/divider';

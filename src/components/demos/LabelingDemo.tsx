@@ -29,7 +29,7 @@ const inputStyle = (hasErr?: boolean): CSSProperties => ({
 export default function LabelingDemo() {
   const goodId = useId();
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+    <div className="demo__labeling" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
       <div style={{ background: "#eef4ff", border: "1.5px solid var(--brand-blue)", borderRadius: 8, padding: 16 }}>
         <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: 12, color: "var(--brand-blue)", fontStyle: "normal", fontWeight: 700, margin: "0 0 10px" }}>✓ Correct</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>

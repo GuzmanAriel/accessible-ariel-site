@@ -1,0 +1,21 @@
+.divider {
+  margin:     36px 0 28px;
+  display:    flex;
+  align-items: center;
+  gap:        12px;
+
+  &__line {
+    flex:       1;
+    height:     1px;
+    background: var(--border);
+  }
+
+  &__label {
+    font-family:    Syne, sans-serif;
+    font-size:      10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color:          var(--muted);
+    white-space:    nowrap;
+  }
+}

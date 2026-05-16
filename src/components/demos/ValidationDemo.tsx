@@ -57,7 +57,7 @@ interface FieldProps {
 
 function Field({ label, hint, error, required, children, id }: FieldProps) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
+    <div className="demo__validation" style={{ display: "flex", flexDirection: "column", gap: 5 }}>
       <label htmlFor={id} style={labelStyle}>
         {label}
         {required && <span aria-hidden="true" style={{ color: "var(--brand-yellow)", marginLeft: 4 }}>*</span>}

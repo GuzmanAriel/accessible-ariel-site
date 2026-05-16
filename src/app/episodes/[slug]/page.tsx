@@ -6,6 +6,7 @@ import type { ReactNode, ComponentType } from "react";
 
 import type { Episode, DemoKey } from "@/types/episode";
 import RuleCard from "@/components/RuleCard";
+import Divider from "@/components/utility/Divider";
 import LabelingDemo from "@/components/demos/LabelingDemo";
 import GroupingDemo from "@/components/demos/GroupingDemo";
 import CustomControlsDemo from "@/components/demos/CustomControlsDemo";
@@ -111,36 +112,6 @@ const subStyle = {
   margin:     "0 0 18px",
   lineHeight: 1.6,
 } as const;
-
-// ─── Helpers ──────────────────────────────────────────────────────────────────
-
-function Divider({ label }: { label: string }) {
-  return (
-    <div
-      style={{
-        margin:      "36px 0 28px",
-        display:     "flex",
-        alignItems:  "center",
-        gap:         12,
-      }}
-    >
-      <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
-      <span
-        style={{
-          fontFamily:    "Syne, sans-serif",
-          fontSize:      10,
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          color:         "var(--muted)",
-          whiteSpace:    "nowrap",
-        }}
-      >
-        {label}
-      </span>
-      <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
-    </div>
-  );
-}
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 

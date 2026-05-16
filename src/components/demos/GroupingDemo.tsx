@@ -52,7 +52,7 @@ export default function GroupingDemo() {
   const courseId = useId();
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+    <div className="demo__grouping" style={{ display: "flex", flexDirection: "column", gap: 20 }}>
 
       {/* Radio group */}
       <div>
