@@ -1,0 +1,24 @@
+.rule-badge {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  &__good,
+  &__bad {
+    color: #fff;
+    font-size: 13px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  &__good {
+    background: var(--brand-blue);
+  }
+
+  &__bad {
+    background: #c47d00;
+  }
+}

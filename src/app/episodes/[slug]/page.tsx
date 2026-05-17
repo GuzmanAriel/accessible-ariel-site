@@ -8,6 +8,7 @@ import type { Episode, DemoKey } from "@/types/episode";
 import Accordion from "@/components/Accordion";
 import Divider from "@/components/utility/Divider";
 import CodeBlock from "@/components/utility/CodeBlock";
+import RuleBadges from "@/components/RuleBadges";
 import LabelingDemo from "@/components/demos/LabelingDemo";
 import GroupingDemo from "@/components/demos/GroupingDemo";
 import CustomControlsDemo from "@/components/demos/CustomControlsDemo";
@@ -139,36 +140,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             {rules.map(({ label, good, bad, code }) => (
               <Accordion key={label} label={label}>
-                <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                  <span
-                    style={{
-                      background: "var(--brand-blue)",
-                      color: "#fff",
-                      fontSize: 13,
-                      fontFamily: "var(--font-heading)",
-                      fontWeight: 700,
-                      letterSpacing: "0.08em",
-                      padding: "2px 8px",
-                      borderRadius: 20,
-                    }}
-                  >
-                    ✓ {good}
-                  </span>
-                  <span
-                    style={{
-                      background: "#c47d00",
-                      color: "#fff",
-                      fontSize: 13,
-                      fontFamily: "var(--font-heading)",
-                      fontWeight: 700,
-                      letterSpacing: "0.08em",
-                      padding: "2px 8px",
-                      borderRadius: 20,
-                    }}
-                  >
-                    ✗ {bad}
-                  </span>
-                </div>
+                <RuleBadges good={good} bad={bad} />
                 <CodeBlock>{code}</CodeBlock>
               </Accordion>
             ))}
