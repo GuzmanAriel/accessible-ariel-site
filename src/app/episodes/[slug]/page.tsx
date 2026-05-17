@@ -5,8 +5,9 @@ import type { Metadata } from "next";
 import type { ReactNode, ComponentType } from "react";
 
 import type { Episode, DemoKey } from "@/types/episode";
-import RuleCard from "@/components/RuleCard";
+import Accordion from "@/components/Accordion";
 import Divider from "@/components/utility/Divider";
+import CodeBlock from "@/components/utility/CodeBlock";
 import LabelingDemo from "@/components/demos/LabelingDemo";
 import GroupingDemo from "@/components/demos/GroupingDemo";
 import CustomControlsDemo from "@/components/demos/CustomControlsDemo";
@@ -109,8 +110,10 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       {/* ── Header ── */}
       <header className="episode__header">
         {/* Decorative circles */}
-        <div className="episode__header-design--back" aria-hidden="true" />
-        <div className="episode__header-design--front" aria-hidden="true" />
+        <div className="episode__header-design">
+          <div className="episode__header-design--back" aria-hidden="true" />
+          <div className="episode__header-design--front" aria-hidden="true" />
+        </div>
 
         <div className="container">
           <p className="episode__header-eyebrow text-eyebrow">Accessible Ariel</p>
@@ -126,7 +129,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       {/* ── Main ── */}
       <main className="container">
         {/* Rules accordion */}
-        <section aria-labelledby="rules-h" style={{ marginTop: 36 }}>
+        <section aria-labelledby="rules-h" className="section__intro">
           <h2 id="rules-h" className="section__heading">
             The Rules
           </h2>
@@ -134,8 +137,40 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             Click any rule to expand it. Tags show which W3C WAI section it covers.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {rules.map((rule) => (
-              <RuleCard key={rule.label} {...rule} />
+            {rules.map(({ label, good, bad, code }) => (
+              <Accordion key={label} label={label}>
+                <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                  <span
+                    style={{
+                      background: "var(--brand-blue)",
+                      color: "#fff",
+                      fontSize: 13,
+                      fontFamily: "var(--font-heading)",
+                      fontWeight: 700,
+                      letterSpacing: "0.08em",
+                      padding: "2px 8px",
+                      borderRadius: 20,
+                    }}
+                  >
+                    ✓ {good}
+                  </span>
+                  <span
+                    style={{
+                      background: "#c47d00",
+                      color: "#fff",
+                      fontSize: 13,
+                      fontFamily: "var(--font-heading)",
+                      fontWeight: 700,
+                      letterSpacing: "0.08em",
+                      padding: "2px 8px",
+                      borderRadius: 20,
+                    }}
+                  >
+                    ✗ {bad}
+                  </span>
+                </div>
+                <CodeBlock>{code}</CodeBlock>
+              </Accordion>
             ))}
           </div>
         </section>

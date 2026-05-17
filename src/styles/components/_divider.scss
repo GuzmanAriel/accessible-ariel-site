@@ -1,21 +1,21 @@
 .divider {
-  margin:     36px 0 28px;
-  display:    flex;
+  margin: 36px 0 28px;
+  display: flex;
   align-items: center;
-  gap:        12px;
+  gap: 12px;
 
   &__line {
-    flex:       1;
-    height:     1px;
+    flex: 1;
+    height: 1px;
     background: var(--border);
   }
 
   &__label {
-    font-family:    var(--font-heading);
-    font-size:      10px;
+    font-family: var(--font-heading);
+    font-size: 14px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color:          var(--muted);
-    white-space:    nowrap;
+    color: var(--muted);
+    white-space: nowrap;
   }
 }

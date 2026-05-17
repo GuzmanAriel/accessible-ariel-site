@@ -1,5 +1,5 @@
-@use "../typography" as t;
-@use "../breakpoints" as b;
+@use "../typography" as typography;
+@use "../breakpoints" as breakpoint;
 
 .episode__wrapper {
   min-height: 100vh;
@@ -20,19 +20,19 @@
 }
 
 .episode__header-title {
-  @include t.text-h1;
+  @include typography.text-h1;
 }
 
 .episode__header-desc {
   margin: 0;
   max-width: 600px;
-  @include t.text-subtitle;
+  @include typography.text-subtitle;
 }
 
 .episode__header-design {
   display: none;
 
-  @media (min-width: b.$breakpoint-min-tablet) {
+  @media (min-width: breakpoint.$breakpoint-min-tablet) {
     display: block;
   }
 
