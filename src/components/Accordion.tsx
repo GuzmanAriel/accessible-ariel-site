@@ -3,17 +3,17 @@
 import { useState, useId } from "react";
 import type { ReactNode } from "react";
 
-type AccordionProps = {
+export type AccordionItem = {
   label: string;
   children: ReactNode;
 };
 
-export default function Accordion({ label, children }: AccordionProps) {
+function AccordionItem({ label, children }: AccordionItem) {
   const [open, setOpen] = useState(false);
   const bodyId = useId();
 
   return (
-    <div className="accordion">
+    <div className="accordion__item">
       <button
         onClick={() => setOpen((o) => !o)}
         className={`accordion__toggle ${open ? "accordion--open" : ""}`}
@@ -29,6 +29,18 @@ export default function Accordion({ label, children }: AccordionProps) {
       <div id={bodyId} hidden={!open} className="accordion__content">
         {open && <div>{children}</div>}
       </div>
+    </div>
+  );
+}
+
+export default function Accordion({ items }: { items: AccordionItem[] }) {
+  return (
+    <div className="accordion">
+      {items.map(({ label, children }) => (
+        <AccordionItem key={label} label={label}>
+          {children}
+        </AccordionItem>
+      ))}
     </div>
   );
 }

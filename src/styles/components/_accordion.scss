@@ -1,48 +1,50 @@
 @use "../breakpoints" as breakpoint;
 
 .accordion {
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-}
-
-.accordion__toggle {
-  width: 100%;
-  text-align: left;
-  padding: 13px 18px;
-  background: none;
-  border: none;
-  cursor: pointer;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  color: var(--ink);
-  font-size: 14px;
+  flex-direction: column;
+  gap: 8px;
 
-  @media (min-width: breakpoint.$breakpoint-min-tablet) {
-    font-size: 18px;
+  &__item {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
   }
 
-  &.accordion--open {
-    .accordion__icon {
+  &__toggle {
+    width: 100%;
+    text-align: left;
+    padding: 13px 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 14px;
+
+    @media (min-width: breakpoint.$breakpoint-min-tablet) {
+      font-size: 18px;
+    }
+
+    &.accordion--open .accordion__icon {
       transform: rotate(45deg);
     }
   }
-}
 
-.accordion__icon {
-  font-size: 26px;
-  color: var(--brand-yellow);
-  flex-shrink: 0;
-  transition: transform 0.2s;
-}
+  &__icon {
+    font-size: 26px;
+    color: var(--brand-yellow);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
 
-.accordion__content {
-  > div {
+  &__content > div {
     padding: 0 18px 18px;
     display: flex;
     flex-direction: column;

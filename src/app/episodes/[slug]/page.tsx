@@ -6,6 +6,8 @@ import type { ReactNode, ComponentType } from "react";
 
 import type { Episode, DemoKey } from "@/types/episode";
 import Accordion from "@/components/Accordion";
+import EpisodeHeader from "@/components/EpisodeHeader";
+import SectionHeading from "@/components/SectionHeading";
 import Divider from "@/components/utility/Divider";
 import CodeBlock from "@/components/utility/CodeBlock";
 import RuleBadges from "@/components/RuleBadges";
@@ -108,43 +110,28 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
   return (
     <div className="episode__wrapper">
-      {/* ── Header ── */}
-      <header className="episode__header">
-        {/* Decorative circles */}
-        <div className="episode__header-design">
-          <div className="episode__header-design--back" aria-hidden="true" />
-          <div className="episode__header-design--front" aria-hidden="true" />
-        </div>
-
-        <div className="container">
-          <p className="episode__header-eyebrow text-eyebrow">Accessible Ariel</p>
-
-          <h1 className="episode__header-title">{metadata.title}</h1>
-
-          {metadata.subtitle && <p className="episode__header-subtitle">{metadata.subtitle}</p>}
-
-          <p className="episode__header-desc">{metadata.description}</p>
-        </div>
-      </header>
+      <EpisodeHeader metadata={metadata} />
 
       {/* ── Main ── */}
       <main className="container">
         {/* Rules accordion */}
         <section aria-labelledby="rules-h" className="section__intro">
-          <h2 id="rules-h" className="section__heading">
-            The Rules
-          </h2>
-          <p className="section__subheading">
-            Click any rule to expand it. Tags show which W3C WAI section it covers.
-          </p>
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {rules.map(({ label, good, bad, code }) => (
-              <Accordion key={label} label={label}>
-                <RuleBadges good={good} bad={bad} />
-                <CodeBlock>{code}</CodeBlock>
-              </Accordion>
-            ))}
-          </div>
+          <SectionHeading
+            id="rules-h"
+            heading="The Rules"
+            subheading="Click any rule to expand it. Tags show which W3C WAI section it covers."
+          />
+          <Accordion
+            items={rules.map(({ label, good, bad, code }) => ({
+              label,
+              children: (
+                <>
+                  <RuleBadges good={good} bad={bad} />
+                  <CodeBlock>{code}</CodeBlock>
+                </>
+              ),
+            }))}
+          />
         </section>
 
         {/* Demo sections — driven by the demos array in the JSON */}
@@ -155,10 +142,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             <div key={key}>
               <Divider label={dividerLabel} />
               <section aria-labelledby={`${key}-h`}>
-                <h2 id={`${key}-h`} className="section__heading">
-                  {heading}
-                </h2>
-                <p className="section__subheading">{description}</p>
+                <SectionHeading id={`${key}-h`} heading={heading} subheading={description} />
                 {card ? (
                   <div
                     style={{
@@ -181,12 +165,11 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         {/* Checklist */}
         <Divider label="Full WAI Checklist" />
         <section aria-labelledby="check-h">
-          <h2 id="check-h" className="section__heading">
-            Full WAI Checklist
-          </h2>
-          <p className="section__subheading">
-            Every requirement from the W3C WAI Forms Tutorial, mapped to code patterns.
-          </p>
+          <SectionHeading
+            id="check-h"
+            heading="Full WAI Checklist"
+            subheading="Every requirement from the W3C WAI Forms Tutorial, mapped to code patterns."
+          />
           <ul
             style={{
               margin: 0,
