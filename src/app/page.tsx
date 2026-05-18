@@ -18,19 +18,20 @@ export default function Home() {
               <header className="heading">
                 <i data-wow-delay="0.1s" className="fa fa-4x fa-hand-peace-o wow fadeInDown"></i>
                 <h1 className="wow zoomIn">
-                  <span className="name">
-                    I am <span className="fn">Ariel Guzman</span>
-                  </span>
-                  <span className="animated-letters category">
-                    <b className="is-visible">Developer</b>
-                    <b>Creator</b>
-                    <b></b>
+                  <span className="name">Accessible Ariel cares about</span>
+                  <span
+                    data-flip-1="Keyboard Users"
+                    data-flip-2="Keyboard Users"
+                    data-flip-3="WCAG"
+                  >
+                    {" "}
+                    Accessibility
                   </span>
                 </h1>
-                <div className="separator wow zoomIn"></div>
+                <div className="separator"></div>
               </header>
 
-              <div data-wow-delay="0.1s" className="wow fadeInUp">
+              <div data-wow-delay="0.1s" className="fadeInUp">
                 <a href="#contacts" className="btn btn-bordered btn-go">
                   Let's get to work
                 </a>

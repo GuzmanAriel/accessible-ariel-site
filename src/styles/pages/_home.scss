@@ -417,7 +417,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(28, 32, 43, 0.7) url("/images/overlay.png");
+  background: #2694e3b3;
   z-index: 5;
 }
 
@@ -2142,10 +2142,6 @@ form .message {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   opacity: 0.5;
-}
-
-.wow {
-  visibility: hidden;
 }
 
 .popup {
