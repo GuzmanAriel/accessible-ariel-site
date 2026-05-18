@@ -1,14 +1,11 @@
 "use client";
 
 import { useState, useId } from "react";
-import type { ReactNode } from "react";
+import type { EpisodeRule } from "@/types/episode";
+import RuleBadges from "@/components/RuleBadges";
+import CodeBlock from "@/components/utility/CodeBlock";
 
-export type AccordionItem = {
-  label: string;
-  children: ReactNode;
-};
-
-function AccordionItem({ label, children }: AccordionItem) {
+function AccordionItem({ label, good, bad, code }: EpisodeRule) {
   const [open, setOpen] = useState(false);
   const bodyId = useId();
 
@@ -27,19 +24,22 @@ function AccordionItem({ label, children }: AccordionItem) {
       </button>
 
       <div id={bodyId} hidden={!open} className="accordion__content">
-        {open && <div>{children}</div>}
+        {open && (
+          <div>
+            <RuleBadges good={good} bad={bad} />
+            <CodeBlock>{code}</CodeBlock>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-export default function Accordion({ items }: { items: AccordionItem[] }) {
+export default function Accordion({ rules }: { rules: EpisodeRule[] }) {
   return (
     <div className="accordion">
-      {items.map(({ label, children }) => (
-        <AccordionItem key={label} label={label}>
-          {children}
-        </AccordionItem>
+      {rules.map((rule) => (
+        <AccordionItem key={rule.label} {...rule} />
       ))}
     </div>
   );

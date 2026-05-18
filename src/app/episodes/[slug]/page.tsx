@@ -9,8 +9,6 @@ import Accordion from "@/components/Accordion";
 import EpisodeHeader from "@/components/EpisodeHeader";
 import SectionHeading from "@/components/SectionHeading";
 import Divider from "@/components/utility/Divider";
-import CodeBlock from "@/components/utility/CodeBlock";
-import RuleBadges from "@/components/RuleBadges";
 import LabelingDemo from "@/components/demos/LabelingDemo";
 import GroupingDemo from "@/components/demos/GroupingDemo";
 import CustomControlsDemo from "@/components/demos/CustomControlsDemo";
@@ -121,17 +119,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             heading="The Rules"
             subheading="Click any rule to expand it. Tags show which W3C WAI section it covers."
           />
-          <Accordion
-            items={rules.map(({ label, good, bad, code }) => ({
-              label,
-              children: (
-                <>
-                  <RuleBadges good={good} bad={bad} />
-                  <CodeBlock>{code}</CodeBlock>
-                </>
-              ),
-            }))}
-          />
+          <Accordion rules={rules} />
         </section>
 
         {/* Demo sections — driven by the demos array in the JSON */}

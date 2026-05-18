@@ -1,0 +1,73 @@
+.labeling-demo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
+  &__panel {
+    border-radius: 8px;
+    padding: 16px;
+
+    &--correct {
+      background: #eef4ff;
+      border: 1.5px solid var(--brand-blue);
+    }
+
+    &--incorrect {
+      background: #fff8f0;
+      border: 1.5px solid #c47d00;
+    }
+  }
+
+  &__status {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    margin: 0 0 10px;
+
+    &--correct {
+      color: var(--brand-blue);
+    }
+
+    &--incorrect {
+      color: #c47d00;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__label {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brand-blue);
+  }
+
+  &__input {
+    padding: 10px 14px;
+    border-radius: 7px;
+    border: 1.5px solid var(--border);
+    background: #fff;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.15s;
+
+    &--error {
+      border-color: #c47d00;
+    }
+  }
+
+  &__spacer {
+    height: 21px;
+  }
+}
