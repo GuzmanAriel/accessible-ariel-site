@@ -17,6 +17,10 @@
 .episode__header-eyebrow {
   margin: 0 0 6px;
   font-family: var(--font-heading);
+  background: var(--brand-yellow);
+  display: inline-block;
+  padding: 5px;
+  border-radius: 4px;
 }
 
 .episode__header-title {

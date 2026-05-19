@@ -5,16 +5,18 @@
   --foreground: #171717;
 
   --font-heading: var(--font-syne), sans-serif;
-  --font-body:    var(--font-dm-sans), Arial, Helvetica, sans-serif;
-  --font-mono:    var(--font-source-code-pro), monospace;
+  --font-body: var(--font-dm-sans), Arial, Helvetica, sans-serif;
+  --font-mono: var(--font-source-code-pro), monospace;
 
-  --brand-blue:   #2563C4;
-  --brand-yellow: #F5B820;
-  --brand-cream:  #FAF7F2;
-  --ink:          #0f2346;
-  --muted:        #5a6a8a;
-  --border:       #c8d8f0;
-  --episode-bg:   #e4f1ff;
+  --brand-blue: #2563c4;
+  --secondary-blue: #003cb7;
+  --dark-blue: #0f172a;
+  --brand-yellow: #fbbf24;
+  --brand-cream: #faf7f2;
+  --ink: #0f2346;
+  --muted: #5a6a8a;
+  --border: #c8d8f0;
+  --episode-bg: #e4f1ff;
 }
 
 @media (prefers-color-scheme: dark) {
