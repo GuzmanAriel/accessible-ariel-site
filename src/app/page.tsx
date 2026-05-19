@@ -124,100 +124,26 @@ export default function Home() {
             <div className="tutorial">
               <div className="tutorial-item">
                 <div className="icon-b wow bounceIn">
-                  <i className="fa fa-briefcase"></i>
+                  <i className="fa-brands fa-wpforms"></i>
                 </div>
                 <div className="tutorial-item-inner wow bounceInRight">
-                  <div className="date">2016+</div>
-                  <h3>Front End Web Developer</h3>
+                  <h3>Forms</h3>
                   <p>
-                    As a Front End Developer at Barkly Pets I have worked with a lot of new things.
-                    Gained an extensive knowledge in PHP. Working at a startup I have really helped
-                    to be a part of a team to bring the business to better place. This included,
-                    migrating the site to Wordpress, updating the pages for a better and more modern
-                    appearance, adding UI elements, and incorporating SEO tactics in order to show
-                    up at the top of search engines organically. Not only did I learn more about
-                    Software Engineering, but I also learned a lot about design and even ceated
-                    mockups on Adobe Illustrator.
+                    Accessible Forms covers everything you need to build forms that work for
+                    everyone — keyboard users and screen reader users included. Topics span labeling
+                    inputs correctly, grouping related controls with fieldset and role="group",
+                    wiring up hints and error messages with ARIA, and building custom controls that
+                    behave like their native counterparts. Includes live interactive demos for each
+                    concept.
                   </p>
-                </div>
-              </div>
-              <div className="tutorial-item">
-                <div className="icon-b wow bounceIn">
-                  <i className="fa fa-briefcase"></i>
-                </div>
-                <div className="tutorial-item-inner wow bounceInRight">
-                  <div className="date">2015 - 2017</div>
-                  <h3>Interactive Developer</h3>
-                  <p>
-                    At TrueChoice Solutions I worked with a lot of UI elements as well as building
-                    applications through an in-house process. Several other duties included: Build
-                    client applications within due dates. Update client applications based on
-                    feedback. Create brand new dynamic templates within the platform for reuse in
-                    client applications. Work with HTML5, CSS3, JavaScript, LESS, Gulp, and Angular
-                    to create new functionality. Set standard organizations for client releases in
-                    order to provide a more efficient release process. Set a standard HTML email
-                    template for clients.
-                  </p>
-                </div>
-              </div>
-              <div className="tutorial-item">
-                <div className="icon-b wow bounceIn">
-                  <i className="fa fa-briefcase"></i>
-                </div>
-                <div className="tutorial-item-inner wow bounceInRight">
-                  <div className="date">2015+</div>
-                  <h3>Interactive Developer</h3>
-                  <p>
-                    At TrueChoice Solutions I worked with a lot of UI elements as well as building
-                    applications through an in-house process. Several other duties included: Build
-                    client applications within due dates. Update client applications based on
-                    feedback. Create brand new dynamic templates within the platform for reuse in
-                    client applications. Work with HTML5, CSS3, JavaScript, LESS, Gulp, and Angular
-                    to create new functionality. Set standard organizations for client releases in
-                    order to provide a more efficient release process. Set a standard HTML email
-                    template for clients.
-                  </p>
-                </div>
-              </div>
-              <div className="tutorial-item">
-                <div className="icon-b wow bounceIn">
-                  <i className="fa fa-briefcase"></i>
-                </div>
-                <div className="tutorial-item-inner wow bounceInLeft">
-                  <div className="date">March 2015 - June 2015</div>
-                  <h3>Front-end developer Intern</h3>
-                  <p>
-                    Developing web apps and gaining knowledge of different languages. Worked with
-                    the following languages: HTML, CSS, JavaScript, J Query, Angular.js
-                  </p>
-                </div>
-              </div>
-              <div className="tutorial-item">
-                <div className="icon-b wow bounceIn">
-                  <i className="fa fa-mortar-board"></i>
-                </div>
-                <div className="tutorial-item-inner wow bounceInRight">
-                  <div className="date">January 2015 - May 2015</div>
-                  <h3>Frontend Development Course</h3>
-                  <p>
-                    In this course I really started to dive deep into web development instead of
-                    teaching myself. I gained a lot of knowledge on HTML CSS and the basics of
-                    JavaScript in order to build the foundations needed to create some great UI. I
-                    built a portfolio and was at the top of my class.
-                  </p>
-                </div>
-              </div>
-              <div className="tutorial-item">
-                <div className="icon-b wow bounceIn">
-                  <i className="fa fa-mortar-board"></i>
-                </div>
-                <div className="tutorial-item-inner wow bounceInLeft">
-                  <div className="date">2009 - 2014</div>
-                  <h3>Daniel Webster College</h3>
-                  <p>
-                    Bachelor's Degree in Psychology, President of the Psychology Club, Captain of
-                    the Women's Basketball Team.
-                  </p>
+                  <div className="tutorial-actions">
+                    <a className="btn btn-s" aria-label="Go to form accessibility tutorial">
+                      Read The Rules
+                    </a>
+                    <a className="btn btn-s" aria-label="Go to form accessibility YouTube tutorial">
+                      Watch Tutorial
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

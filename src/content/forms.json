@@ -142,10 +142,5 @@
       "item": "Placeholder text is supplementary only, never the sole label"
     }
   ],
-  "demos": [
-    "labeling",
-    "grouping",
-    "customControls",
-    "validation"
-  ]
+  "demos": ["labeling", "grouping", "customControls", "validation"]
 }

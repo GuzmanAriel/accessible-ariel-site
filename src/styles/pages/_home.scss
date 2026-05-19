@@ -720,11 +720,11 @@ html[style*="margin-right"] .main-nav {
   display: inline-block;
   vertical-align: middle;
   padding: 18px 35px;
-  background: #fb544d;
+  background: var(--brand-yellow);
   border: none;
   border-radius: 40px;
   box-sizing: border-box;
-  color: #000000;
+  color: var(--dark-blue);
   font:
     italic bold 1em / 1 Roboto Mono,
     serif;
@@ -737,7 +737,7 @@ html[style*="margin-right"] .main-nav {
 }
 
 .btn:hover {
-  background: var(--brand-yellow);
+  background: #eab308;
 }
 
 .btn.btn-s {
@@ -905,6 +905,11 @@ html[style*="margin-right"] .main-nav {
 
 .btn-lightbox:hover:after {
   opacity: 1;
+}
+
+.icon-a {
+  color: var(--brand-yellow);
+  font-size: 2em;
 }
 
 .icon-b {
@@ -1217,83 +1222,11 @@ html[style*="margin-right"] .main-nav {
 .date {
   margin: 0 0 15px;
 }
-
-.expirience {
-  position: relative;
+.tutorial-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }
-
-.expirience:before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 40px;
-  bottom: 0;
-  width: 2px;
-  border: 1px solid;
-  border-top: none;
-  border-bottom: none;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-
-.expirience .expirience-item {
-  position: relative;
-  padding: 0 0 0 50%;
-}
-
-.expirience .expirience-item .icon-b {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  display: block;
-  margin: 0 0 0 -35px;
-  color: #000000;
-}
-
-.expirience .expirience-item .icon-b:before {
-  background: #fff;
-}
-
-.expirience .expirience-item .expirience-item-inner {
-  position: relative;
-  padding: 28px 0 20px 60px;
-}
-
-.expirience .expirience-item .date {
-  font-weight: bold;
-}
-
-.expirience .expirience-item h3 {
-  margin-bottom: 15px;
-}
-
-.section-bg-dark .expirience .expirience-item .icon-b {
-  background: #1c202b;
-}
-
-.section-bg-light .expirience .expirience-item .icon-b {
-  background: #e4ebee;
-}
-
-.expirience .expirience-item:hover .icon-b:before {
-  background: #fb544d;
-}
-
-.expirience .expirience-item:nth-child(2n) {
-  padding: 0 50% 0 0;
-}
-
-.expirience .expirience-item:nth-child(2n) .expirience-item-inner {
-  padding-left: 0;
-  padding-right: 60px;
-  text-align: right;
-}
-
-.expirience .expirience-item:last-child .expirience-item-inner {
-  padding-bottom: 0;
-}
-
 .services {
   text-align: center;
 }
