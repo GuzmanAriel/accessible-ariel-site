@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import Image from "next/image";
+import tutorialsData from "@/content/tutorials.json";
 const thumbnailUrl = "/images/accessibility-header.jpg";
 const animatedPortrait = "/images/animated-portrait.png";
 
@@ -122,30 +123,25 @@ export default function Home() {
             </header>
 
             <div className="tutorial">
-              <div className="tutorial-item">
-                <div className="icon-b wow bounceIn">
-                  <i className="fa-brands fa-wpforms"></i>
-                </div>
-                <div className="tutorial-item-inner wow bounceInRight">
-                  <h3>Forms</h3>
-                  <p>
-                    Accessible Forms covers everything you need to build forms that work for
-                    everyone — keyboard users and screen reader users included. Topics span labeling
-                    inputs correctly, grouping related controls with fieldset and role="group",
-                    wiring up hints and error messages with ARIA, and building custom controls that
-                    behave like their native counterparts. Includes live interactive demos for each
-                    concept.
-                  </p>
-                  <div className="tutorial-actions">
-                    <a className="btn btn-s" aria-label="Go to form accessibility tutorial">
-                      Read The Rules
-                    </a>
-                    <a className="btn btn-s" aria-label="Go to form accessibility YouTube tutorial">
-                      Watch Tutorial
-                    </a>
+              {tutorialsData.tutorials.map((tutorial) => (
+                <div className="tutorial-item" key={tutorial.title}>
+                  <div className="icon-b wow bounceIn">
+                    <i className={tutorial.icon}></i>
+                  </div>
+                  <div className="tutorial-item-inner wow bounceInRight">
+                    <h3>{tutorial.title}</h3>
+                    <p>{tutorial.description}</p>
+                    <div className="tutorial-actions">
+                      <a className="btn btn-s" aria-label={tutorial.ruleButtonAria}>
+                        Read The Rules
+                      </a>
+                      <a className="btn btn-s" aria-label={tutorial.youTubeButtonAria}>
+                        Watch Tutorial
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
