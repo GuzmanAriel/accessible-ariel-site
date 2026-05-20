@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import tutorialsData from "@/content/tutorials.json";
-const thumbnailUrl = "/images/accessibility-header.jpg";
+const thumbnailUrl = "/images/header.jpg";
 const animatedPortrait = "/images/animated-portrait.png";
 
 export default function Home() {
@@ -45,8 +45,8 @@ export default function Home() {
               </header>
 
               <div data-wow-delay="0.1s" className="wow fadeInUp">
-                <a href="#contacts" className="btn btn-bordered btn-go">
-                  Let's get to work
+                <a href="mailto:guzmanariel525@gmail.com" className="btn btn-bordered btn-go">
+                  Send Me An Email
                 </a>
               </div>
             </div>
@@ -142,9 +142,6 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-              <a className="btn" href="/episodes" aria-label="Go to Tutorials Page">
-                Tutorials Page
-              </a>
             </div>
           </div>
         </div>

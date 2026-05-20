@@ -207,8 +207,9 @@
 		=            Button scroll            =
 		=====================================*/
 		$(document).on('click', '.btn-go', function(e) {
-			e.preventDefault();
 			var target = $(this).attr('href');
+			if (!target || target.charAt(0) !== '#') return;
+			e.preventDefault();
 			var targetOffset = $(target).offset();
 			$('html,body').animate({scrollTop: (targetOffset.top)}, 500);
 		});
