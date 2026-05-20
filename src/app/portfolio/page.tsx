@@ -2,6 +2,8 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import tutorialsData from "@/content/tutorials.json";
+import projectsData from "@/content/projects.json";
+import ModalList from "@/components/ModalList";
 const thumbnailUrl = "/images/header.jpg";
 const animatedPortrait = "/images/animated-portrait.png";
 
@@ -78,15 +80,16 @@ export default function Home() {
               <div className="wow bounceInRight">
                 <h3>Exploring accessible frontend development</h3>
                 <p>
-                  Accessible Ariel is a platform focused on building accessible UI components with
-                  real-world examples, WCAG guidance, and developer-friendly tutorials. Each
-                  component includes breakdowns of accessibility best practices, keyboard
-                  interactions, screen reader behavior, and implementation details, along with
-                  linked YouTube tutorials that walk through the process step-by-step. This project
-                  is not just about teaching accessibility — it is also about continuing to learn,
-                  experiment, and improve as I build alongside the developer community. My goal is
-                  to help make accessibility more approachable and practical for everyday frontend
-                  development.
+                  Hi, I’m Ariel — yes, like the little mermaid — and I’m a Front-End Engineer with
+                  10+ years of experience building modern, user-focused web experiences. I’ve worked
+                  across a variety of frameworks and technologies over the years, from early Angular
+                  to Vue.js, and now primarily React and Next.js applications alongside Back-End
+                  teams. I’m passionate about creating polished, accessible, and engaging interfaces
+                  through thoughtful UX, subtle animations, and responsive design. That passion led
+                  me to create Accessible Ariel, where I share accessible component tutorials, WCAG
+                  guidance, and real-world front-end solutions while continuing to learn and grow as
+                  a developer. Outside of coding, I enjoy working out, basketball, tacos, pizza, and
+                  trying not to ruin my fantasy football season.
                 </p>
                 <ul className="social-nav">
                   <li>
@@ -110,10 +113,30 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section id="projects" className="section section-top-rise section-bottom-fall">
+        <div className="section-inner">
+          <div className="container">
+            <header className="heading">
+              <h2>Projects</h2>
+              <div className="separator"></div>
+            </header>
+
+            <ul className="filter">
+              <li data-group="all" className="active">
+                All
+              </li>
+              <li data-group="website">Websites</li>
+              <li data-group="highlight">Highlight</li>
+            </ul>
+
+            <ModalList projects={projectsData.projects} />
+          </div>
+        </div>
+      </section>
 
       <section
         id="tutorials"
-        className="section section-bg-dark section-top-rise section-bottom-rise"
+        className="section section-bg-dark section-top-fall section-bottom-rise"
       >
         <div className="section-inner">
           <div className="container">
