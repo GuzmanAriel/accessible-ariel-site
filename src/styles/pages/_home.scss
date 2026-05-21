@@ -601,7 +601,7 @@ html[style*="margin-right"] .main-nav {
   letter-spacing: 2px;
   text-align: center;
   opacity: 1;
-  color: #fb544d;
+  color: var(--brand-blue);
 }
 
 .filter li,
@@ -649,7 +649,7 @@ html[style*="margin-right"] .main-nav {
 .filter li.active:before,
 .pagination li.active:before,
 .tabs-nav li.active:before {
-  background: currentColor;
+  background: var(--brand-blue);
 }
 
 .filter li a,
@@ -1033,6 +1033,7 @@ html[style*="margin-right"] .main-nav {
 
 .heading h2 {
   margin-bottom: 10px;
+  color: var(--brand-blue);
 }
 
 .heading .separator {
@@ -1047,7 +1048,7 @@ html[style*="margin-right"] .main-nav {
   margin: 50px auto;
   background: currentColor;
   border-radius: 50%;
-  color: #000;
+  color: var(--brand-blue);
 }
 
 .section-bg-dark .separator,
@@ -1057,9 +1058,13 @@ html[style*="margin-right"] .main-nav {
   color: #ffffff;
 }
 
+.section-bg-light h2 {
+  color: var(--brand-blue);
+}
+
 .section-bg-light .separator,
 .content-box-light .separator {
-  color: #000000;
+  color: var(--brand-blue);
 }
 
 .separator:before {
@@ -1246,6 +1251,20 @@ html[style*="margin-right"] .main-nav {
   padding: 0 0 0 17px;
 }
 
+.skills-container .row {
+  gap: 40px;
+}
+
+.skills__desc {
+  width: 60%;
+  p {
+    margin-bottom: 10px;
+  }
+}
+.skills__individual {
+  width: 40%;
+}
+
 .bars .bars-item,
 .bars .skills-item,
 .skills .bars-item,
@@ -1269,7 +1288,7 @@ html[style*="margin-right"] .main-nav {
   border: 1px solid;
   border-left: none;
   border-right: none;
-  color: #fb544d;
+  color: #fff;
   transition: 1s;
 }
 
@@ -1296,7 +1315,7 @@ html[style*="margin-right"] .main-nav {
   width: 12px;
   height: 12px;
   margin: -6px 0 0;
-  background: currentColor;
+  background: #fff;
   border-radius: 50%;
   transition: 0.3s;
 }
@@ -1407,6 +1426,7 @@ html[style*="margin-right"] .main-nav {
   text-transform: uppercase;
   letter-spacing: 2px;
   opacity: 1;
+  display: flex;
 }
 
 .works .works-item {
@@ -1452,13 +1472,14 @@ html[style*="margin-right"] .main-nav {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #fb544d;
+  background: var(--brand-blue);
   transition: 0.3s;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
   text-align: center;
+  color: #fff;
 }
 
 .works .works-item .works-item-link img {

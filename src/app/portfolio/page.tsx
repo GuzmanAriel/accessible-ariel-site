@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import Image from "next/image";
-import tutorialsData from "@/content/tutorials.json";
+import experiencessData from "@/content/experience.json";
 import projectsData from "@/content/projects.json";
 import ModalList from "@/components/ModalList";
 const thumbnailUrl = "/images/header.jpg";
@@ -135,33 +135,98 @@ export default function Home() {
       </section>
 
       <section
-        id="tutorials"
-        className="section section-bg-dark section-top-fall section-bottom-rise"
+        id="skills"
+        className="section section-bg-dark section-top-fall section-bottom-fall skills-container"
+      >
+        <div className="section-inner">
+          <div className="container">
+            <div className="row">
+              <div className="skills__desc">
+                <h3>My skills</h3>
+                <div className="separator l"></div>
+                <p>
+                  Over the past 10+ years as a front-end developer, I’ve worked across agency and
+                  product-focused environments building accessible, responsive, and user-focused web
+                  experiences. My primary focus today is React, Next.js, JavaScript, TypeScript, and
+                  modern CSS workflows including Sass and Tailwind CSS.
+                </p>
+                <p>
+                  Throughout my career I’ve worked with a variety of frameworks, CMS platforms, and
+                  tooling including WordPress, Sitecore, Storybook, Node.js, and Gulp. I especially
+                  enjoy building reusable components, improving accessibility, and creating polished
+                  user experiences through thoughtful UI development and subtle interactions.
+                </p>
+                <p>
+                  Most of my learning has come from building real-world projects, experimenting with
+                  new technologies, and continuously refining how I approach front-end architecture,
+                  accessibility, and performance.
+                </p>
+              </div>
+              <div className="skills__individual">
+                <div className="skills">
+                  <div data-progress="100" className="skills-item wow">
+                    <div className="skills-item-progress"></div>
+                    <h4>CSS/SASS/LESS/Tailwind</h4>
+                  </div>
+                  <div data-progress="100" className="skills-item wow">
+                    <div className="skills-item-progress"></div>
+                    <h4>JavaScript (ES6+)</h4>
+                  </div>
+                  <div data-progress="95" className="skills-item wow">
+                    <div className="skills-item-progress"></div>
+                    <h4>React.js</h4>
+                  </div>
+
+                  <div data-progress="95" className="skills-item wow">
+                    <div className="skills-item-progress"></div>
+                    <h4>API</h4>
+                  </div>
+                  <div data-progress="95" className="skills-item wow">
+                    <div className="skills-item-progress"></div>
+                    <h4>Next.js</h4>
+                  </div>
+
+                  <div data-progress="90" className="skills-item wow">
+                    <div className="skills-item-progress"></div>
+                    <h4>W3C Standards/A11y</h4>
+                  </div>
+                  <div data-progress="90 " className="skills-item wow">
+                    <div className="skills-item-progress"></div>
+                    <h4>TypeScript</h4>
+                  </div>
+
+                  <div data-progress="60" className="skills-item wow">
+                    <div className="skills-item-progress"></div>
+                    <h4>Vue.js</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="experience"
+        className="section section-bg-light section-top-fall section-bottom-rise"
       >
         <div className="section-inner">
           <div className="container">
             <header className="heading">
-              <h2>Tutorials</h2>
+              <h2>Experience</h2>
               <div className="separator"></div>
             </header>
 
             <div className="tutorial">
-              {tutorialsData.tutorials.map((tutorial) => (
-                <div className="tutorial-item" key={tutorial.title}>
+              {experiencessData.experience.map((experience) => (
+                <div className="tutorial-item" key={experience.title}>
                   <div className="icon-b wow bounceIn">
-                    <i className={tutorial.icon}></i>
+                    <i className={experience.icon}></i>
                   </div>
                   <div className="tutorial-item-inner wow bounceInRight">
-                    <h3>{tutorial.title}</h3>
-                    <p>{tutorial.description}</p>
-                    <div className="tutorial-actions">
-                      <a className="btn btn-s" aria-label={tutorial.ruleButtonAria}>
-                        Read The Rules
-                      </a>
-                      <a className="btn btn-s" aria-label={tutorial.youTubeButtonAria}>
-                        Watch Tutorial
-                      </a>
-                    </div>
+                    <div className="date">{experience.date}</div>
+                    <h3>{experience.title}</h3>
+                    <p>{experience.description}</p>
                   </div>
                 </div>
               ))}
