@@ -3,50 +3,102 @@
     {
       "title": "Velir | Senior Front End Developer",
       "date": "2022 - Current",
-      "description": "I independently managed multiple client projects as the sole Front-End Developer, collaborating with Back-End, Sitecore, AEM, and Drupal teams to integrate front-end components with APIs according to client requirements. I optimized applications for performance and scalability, modernized projects by transitioning from class-based to function-based React.js, and worked closely with clients and designers to develop new React components from the ground up. In addition, I evaluated designs to ensure W3C standards compliance, created reusable components to improve code efficiency, and conducted SCSS file audits to remove unnecessary code for better performance. I also reviewed components to ensure they met W3C and A11Y standards.",
-      "icon": "fa fa-briefcase"
+      "icon": "fa fa-briefcase",
+      "bullets": [
+        "Led front-end development across multiple client projects as the primary Front-End Developer.",
+        "Built scalable and accessible applications using React.js, Next.js, JavaScript, TypeScript, and modern CSS workflows.",
+        "Collaborated with Back-End, Sitecore, AEM, and Drupal teams to integrate reusable UI components with APIs and CMS-driven content.",
+        "Modernized legacy React applications by transitioning class-based architecture to function-based React with hooks.",
+        "Worked closely with clients and designers to develop responsive, user-focused interfaces and reusable component systems.",
+        "Improved application performance through SCSS audits, code cleanup, and front-end optimization efforts.",
+        "Ensured components aligned with W3C and accessibility best practices, including semantic HTML, keyboard navigation, and screen reader support."
+      ]
     },
     {
       "title": "Mindsize | Front End Developer",
       "date": "2020 - 2022",
-      "description": "I led front-end development projects by collaborating with project managers to set timelines and assign tasks to the most suitable developers. I developed and deployed updates for WooCommerce and Shopify, improving both functionality and user experience. I'm adept at executing rapid changes with minimal disruption, ensuring timely delivery. Additionally, I authored comprehensive documentation to support future developers and streamline project onboarding. By introducing GitHub workflows and task management processes, I enhanced team collaboration and code quality. I also contributed to building a dynamic platform with Vue.js, Laravel, and Inertia.js, driving innovation and performance improvements.",
-      "icon": "fa fa-briefcase"
+      "icon": "fa fa-briefcase",
+      "bullets": [
+        "Led front-end development initiatives by collaborating with project managers to coordinate timelines, priorities, and feature delivery.",
+        "Developed and deployed enhancements for WooCommerce and Shopify platforms to improve functionality, usability, and customer experience.",
+        "Implemented rapid feature updates and bug fixes while maintaining project stability and delivery timelines.",
+        "Created technical documentation and onboarding resources to support long-term project maintainability and future developers.",
+        "Introduced GitHub workflows and development processes to improve collaboration, organization, and code quality across projects.",
+        "Contributed to building a dynamic web platform using Vue.js, Laravel, and Inertia.js."
+      ]
     },
     {
       "title": "Silverback Strategies | Senior Web Developer",
       "date": "2017 - 2020",
-      "description": "As a front-end developer, I represented the development department, addressing client questions and concerns. I worked closely with graphic designers, content managers, and SEO specialists to build custom WordPress websites from start to finish. Using PSD or Sketch designs as a foundation, I developed sites while adding my own creative elements. I also worked across multiple CMS platforms to ensure sites were easily editable for non-technical users. In addition to building sites, I handled ongoing maintenance by optimizing page speed, performing updates, and testing on a bi-weekly basis. I improved the process of delivering seamless WordPress experiences for clients and conducted in-depth User Experience Audits. Additionally, I created interactive landing pages using the WordPress API and React.js, driving user engagement and functionality. I also have to mention, I built an award winning site!",
-      "icon": "fa fa-briefcase"
+      "icon": "fa fa-briefcase",
+      "bullets": [
+        "Represented the development team in direct client communication, addressing technical questions, feedback, and project requirements.",
+        "Collaborated closely with designers, content managers, and SEO specialists to build custom WordPress websites from concept to launch.",
+        "Developed responsive websites from PSD and Sketch designs while contributing additional UI and interaction enhancements.",
+        "Worked across multiple CMS platforms to create flexible, user-friendly editing experiences for non-technical content teams.",
+        "Managed ongoing site maintenance including performance optimization, platform updates, and routine QA testing.",
+        "Built interactive landing pages using the WordPress API and React.js to improve engagement and user experience.",
+        "Conducted in-depth UX audits and contributed to the development of an award-winning website."
+      ]
     },
     {
       "title": "Barkly Pets | Front End Web Developer",
       "date": "May '17 - Dec '17",
-      "description": "As a Front End Developer at Barkly Pets, I worked extensively with new technologies, gaining a deep understanding of PHP. Being part of a startup, I played a key role in helping the business grow by revamping the company's web properties. This involved migrating the entire site to WordPress and updating pages for a modern look with added UI elements. I also incorporated SEO tactics, resulting in a 150% growth in organic traffic over five months. In addition to the technical work, I created design mockups using Adobe Illustrator and enhanced the site with animations, such as scroll effects and popups, which boosted user engagement and conversion rates. I also trained colleagues on how to effectively use WordPress and continuously optimized the site for both performance and SEO.",
-      "icon": "fa fa-briefcase"
+      "icon": "fa fa-briefcase",
+      "bullets": [
+        "Spearheaded the revamp of Barkly Pets’ web properties to modernize the brand’s digital experience.",
+        "Led the migration of the company website to WordPress and trained team members on content management workflows.",
+        "Optimized the site for SEO, contributing to a 150% increase in organic traffic within 4 months.",
+        "Improved internal processes related to SEO strategy and content creation workflows.",
+        "Collaborated with content creators and designers to redesign and launch new website pages.",
+        "Enhanced user engagement through interactive animations, scroll effects, and conversion-focused UI elements.",
+        "Contributed to the design process using Adobe Illustrator to support the Graphic Design team."
+      ]
     },
     {
       "title": "TrueChoice Solutions | Interactive Developer",
       "date": "2015 - 2017",
-      "description": "At TrueChoice Solutions, I worked extensively with UI elements and developed applications using an in-house process. My responsibilities included building and updating client applications on time, creating dynamic templates for reuse, and enhancing functionality using technologies such as HTML5, CSS3, JavaScript, LESS, Gulp, and Angular. I also set up standard processes for client releases and created a reusable HTML email template for clients. Additionally, I maintained and supported web markup, resolved front-end bugs, and revamped templates with CSS3 animations to improve the user experience. My role involved direct client communication to define project parameters and leading team planning efforts to ensure efficient project execution.",
-      "icon": "fa fa-briefcase"
+      "icon": "fa fa-briefcase",
+      "bullets": [
+        "Maintained and supported front-end codebases using HTML5, CSS, LESS, and JavaScript.",
+        "Diagnosed and resolved front-end bugs across HTML, CSS, JavaScript, and jQuery implementations.",
+        "Communicated directly with clients to define project requirements, timelines, and development priorities.",
+        "Developed reusable dynamic templates to streamline client application development.",
+        "Enhanced user experience by modernizing legacy templates with CSS3 animations and interactive UI improvements.",
+        "Built new functionality using HTML5, CSS3, JavaScript, LESS, Angular, and jQuery.",
+        "Utilized Gulp workflows to optimize asset compilation and improve development efficiency.",
+        "Performed quality assurance testing across multiple server environments and browsers.",
+        "Conducted security-focused QA testing, including validation against common XSS vulnerabilities.",
+        "Improved release organization processes to support more efficient and reliable client deployments.",
+        "Created standardized HTML email templates for client communications and marketing initiatives."
+      ]
     },
     {
       "title": "Front-end Developer Intern",
       "date": "March 2015 - June 2015",
-      "description": "Developing web apps and gaining knowledge of different languages. Worked with the following languages: HTML, CSS, JavaScript, jQuery, Angular.js.",
-      "icon": "fa fa-briefcase"
+      "icon": "fa fa-briefcase",
+      "bullets": [
+        "Developed web apps and gained foundational knowledge of HTML, CSS, JavaScript, jQuery, and Angular.js."
+      ]
     },
     {
       "title": "Frontend Development Course",
       "date": "January 2015 - May 2015",
-      "description": "In this course I really started to dive deep into web development instead of teaching myself. I gained a lot of knowledge on HTML CSS and the basics of JavaScript in order to build the foundations needed to create some great UI. I built a portfolio and was at the top of my class.",
-      "icon": "fa fa-briefcase"
+      "icon": "fa fa-graduation-cap",
+      "bullets": [
+        "Completed an intensive frontend development course covering HTML, CSS, and JavaScript fundamentals.",
+        "Built a portfolio project and graduated at the top of the class."
+      ]
     },
     {
       "title": "Daniel Webster College",
       "date": "2009 - 2014",
-      "description": "Bachelor's Degree in Psychology, President of the Psychology Club, Captain of the Women's Basketball Team.",
-      "icon": "fa fa-briefcase"
+      "icon": "fa fa-graduation-cap",
+      "bullets": [
+        "Bachelor's Degree in Psychology.",
+        "President of the Psychology Club.",
+        "Captain of the Women's Basketball Team."
+      ]
     }
   ]
 }

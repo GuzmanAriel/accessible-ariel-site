@@ -917,7 +917,7 @@ html[style*="margin-right"] .main-nav {
   display: inline-block;
   width: 70px;
   height: 70px;
-  margin: 0 auto 30px;
+  margin: 0 auto 20px;
   border-radius: 50%;
   box-sizing: border-box;
   font-size: 1.4285714286em;
@@ -1225,12 +1225,18 @@ html[style*="margin-right"] .main-nav {
 }
 
 .date {
-  margin: 0 0 15px;
+  margin: 0 0 5px;
+  font-weight: bold;
 }
+
 .tutorial-actions {
   display: flex;
   gap: 10px;
   margin-top: 10px;
+}
+
+.tutorial-desc {
+  margin-left: 20px;
 }
 .services {
   text-align: center;
@@ -2894,5 +2900,5 @@ a img.aligncenter {
 }
 
 .tutorial-item {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }

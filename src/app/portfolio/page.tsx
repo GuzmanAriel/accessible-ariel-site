@@ -57,7 +57,10 @@ export default function Home() {
         <canvas id="particles"></canvas>
       </section>
 
-      <section id="about" className="section section-bg-light section-top-rise section-bottom-rise">
+      <section
+        id="about"
+        className="section section-bg-light section-top-rise section-bottom-rise portfolio-about"
+      >
         <div className="section-inner">
           <div className="container">
             <header className="heading">
@@ -226,7 +229,11 @@ export default function Home() {
                   <div className="tutorial-item-inner wow bounceInRight">
                     <div className="date">{experience.date}</div>
                     <h3>{experience.title}</h3>
-                    <p>{experience.description}</p>
+                    <ul className="tutorial-desc">
+                      {experience.bullets.map((bullet, i) => (
+                        <li key={i}>{bullet}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               ))}
