@@ -5,7 +5,7 @@
 
   &__hint {
     font-family: var(--font-body);
-    font-size: 12px;
+    font-size: 16px;
     color: var(--brand-blue);
     font-style: normal;
     font-weight: 700;
@@ -30,7 +30,7 @@
 
   &__live {
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: 16px;
     color: var(--brand-blue);
     margin-top: 6px;
     min-height: 20px;
@@ -67,7 +67,7 @@
 
   &__toggle-label {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     color: var(--ink);
     cursor: pointer;
   }

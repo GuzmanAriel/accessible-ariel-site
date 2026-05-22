@@ -211,6 +211,7 @@
 		=            Nav            =
 		===========================*/
     $(".btn-nav").click(function () {
+      console.log("hello world");
       $(".main-nav").toggleClass("main-nav--visible");
     });
 

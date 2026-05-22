@@ -1,3 +1,5 @@
+@use "../utilities" as *;
+
 .validation-demo {
   &__instructions {
     background: #eef4ff;
@@ -6,7 +8,7 @@
     padding: 12px 16px;
     margin-bottom: 14px;
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: 16px;
     color: var(--ink);
     line-height: 1.6;
   }
@@ -33,7 +35,7 @@
 
   &__error-summary-heading {
     font-family: var(--font-heading);
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 800;
     color: #c47d00;
     margin: 0 0 8px;
@@ -44,7 +46,7 @@
     padding: 0;
     list-style: none;
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: 16px;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -74,7 +76,7 @@
   &__legend {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 13px;
+    font-size: 16px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--brand-blue);
@@ -105,7 +107,7 @@
   &__label {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 13px;
+    font-size: 16px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--brand-blue);
@@ -113,14 +115,14 @@
 
   &__hint {
     font-family: var(--font-body);
-    font-size: 12px;
+    font-size: 16px;
     color: var(--muted);
     font-style: italic;
   }
 
   &__error-msg {
     font-family: var(--font-body);
-    font-size: 12px;
+    font-size: 16px;
     color: #c47d00;
     display: flex;
     align-items: center;
@@ -137,7 +139,7 @@
     border: 1.5px solid var(--border);
     background: #fff;
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     color: var(--ink);
     outline: none;
     width: 100%;
@@ -155,7 +157,7 @@
     border: 1.5px solid var(--border);
     background: #fff;
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     color: var(--ink);
     outline: none;
     width: 100%;
@@ -173,6 +175,7 @@
     flex-direction: column;
     gap: 10px;
     margin-top: 8px;
+    color: var(--muted);
   }
 
   &__option {
@@ -180,14 +183,12 @@
     align-items: center;
     gap: 10px;
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
   }
 
   &__radio {
-    accent-color: var(--brand-blue);
-    width: 16px;
-    height: 16px;
+    @include radio-control;
   }
 
   &__agree {
@@ -203,15 +204,13 @@
   }
 
   &__agree-checkbox {
+    @include checkbox-control;
     margin-top: 3px;
-    accent-color: var(--brand-blue);
-    width: 16px;
-    height: 16px;
   }
 
   &__agree-label {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     color: var(--ink);
     line-height: 1.5;
   }
@@ -232,7 +231,7 @@
     border-radius: 8px;
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 15px;
+    font-size: 16px;
     cursor: pointer;
     letter-spacing: 0.03em;
   }
@@ -259,7 +258,7 @@
   &__success-desc {
     margin: 8px 0 16px;
     color: var(--muted);
-    font-size: 13px;
+    font-size: 16px;
   }
 
   &__reset {

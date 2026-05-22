@@ -1,3 +1,49 @@
+// ─── Shared demo mixins ───────────────────────────────────────────────────────
+
+@mixin radio-control {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--brand-blue);
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background 0.15s;
+  cursor: pointer;
+
+  &:checked {
+    background: radial-gradient(circle, var(--brand-blue) 45%, transparent 46%);
+  }
+}
+
+@mixin checkbox-control {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--brand-blue);
+  border-radius: 3px;
+  flex-shrink: 0;
+  transition: background 0.15s;
+  cursor: pointer;
+  position: relative;
+
+  &:checked {
+    background: var(--brand-blue);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 0px;
+      width: 5px;
+      height: 9px;
+      border: 2px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+  }
+}
+
 // ─── Screen-reader only ───────────────────────────────────────────────────────
 
 .sr-only {

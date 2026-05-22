@@ -379,6 +379,10 @@
   color: #ffffff;
 }
 
+.section-bg-dark .heading h2 {
+  color: #fff;
+}
+
 .section-bg-dark + .section-bg-dark .section-inner {
   padding-top: 0;
 }
@@ -587,6 +591,7 @@ html[style*="margin-right"] .main-nav {
   position: absolute;
   left: -90px;
   top: 30px;
+  background: var(--brand-blue);
 }
 
 .filter,
@@ -2732,7 +2737,7 @@ a img.aligncenter {
 }
 
 .wp-caption p.wp-caption-text {
-  font-size: 11px;
+  font-size: 16px;
   line-height: 17px;
   margin: 0;
   padding: 0 4px 5px;
@@ -2755,8 +2760,8 @@ a img.aligncenter {
   clip: auto !important;
   color: #21759b;
   display: block;
-  font-size: 14px;
-  font-size: 0.875rem;
+  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
   height: auto;
   left: 5px;

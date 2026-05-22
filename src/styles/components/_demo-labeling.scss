@@ -8,19 +8,19 @@
     padding: 16px;
 
     &--correct {
-      background: #eef4ff;
+      background: #fff;
       border: 1.5px solid var(--brand-blue);
     }
 
     &--incorrect {
-      background: #fff8f0;
-      border: 1.5px solid #c47d00;
+      background: #fff;
+      border: 1.5px solid #c0392b;
     }
   }
 
   &__status {
     font-family: var(--font-body);
-    font-size: 12px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 700;
     margin: 0 0 10px;
@@ -30,7 +30,7 @@
     }
 
     &--incorrect {
-      color: #c47d00;
+      color: #c0392b;
     }
   }
 
@@ -43,7 +43,7 @@
   &__label {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 13px;
+    font-size: 16px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--brand-blue);
@@ -55,7 +55,7 @@
     border: 1.5px solid var(--border);
     background: #fff;
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     color: var(--ink);
     outline: none;
     width: 100%;
@@ -63,7 +63,7 @@
     transition: border-color 0.15s;
 
     &--error {
-      border-color: #c47d00;
+      border-color: #c0392b;
     }
   }
 

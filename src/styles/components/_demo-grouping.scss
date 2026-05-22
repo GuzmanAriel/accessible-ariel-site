@@ -1,3 +1,5 @@
+@use "../utilities" as *;
+
 .grouping-demo {
   display: flex;
   flex-direction: column;
@@ -5,7 +7,7 @@
 
   &__hint {
     font-family: var(--font-body);
-    font-size: 12px;
+    font-size: 16px;
     color: var(--brand-blue);
     font-style: normal;
     font-weight: 700;
@@ -22,7 +24,7 @@
   &__legend {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 13px;
+    font-size: 16px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--brand-blue);
@@ -33,6 +35,7 @@
     flex-direction: column;
     gap: 10px;
     margin-top: 8px;
+    color: #5a6a8a;
   }
 
   &__option {
@@ -40,14 +43,18 @@
     align-items: center;
     gap: 10px;
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
   }
 
   &__control {
-    accent-color: var(--brand-blue);
-    width: 16px;
-    height: 16px;
+    &[type="radio"] {
+      @include radio-control;
+    }
+
+    &[type="checkbox"] {
+      @include checkbox-control;
+    }
   }
 
   &__field {
@@ -59,7 +66,7 @@
   &__label {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 13px;
+    font-size: 16px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--brand-blue);
@@ -71,7 +78,7 @@
     border: 1.5px solid var(--border);
     background: #fff;
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     color: var(--ink);
     outline: none;
     width: 100%;
@@ -95,7 +102,7 @@
   &__address-title {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 13px;
+    font-size: 16px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--brand-blue);
@@ -116,7 +123,7 @@
 
   &__address-label {
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: 16px;
     color: var(--muted);
   }
 
@@ -126,7 +133,7 @@
     border: 1.5px solid var(--border);
     background: #fff;
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     color: var(--ink);
     outline: none;
     width: 100%;
