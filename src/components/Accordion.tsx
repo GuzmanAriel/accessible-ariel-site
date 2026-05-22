@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useId } from "react";
-import type { EpisodeRule } from "@/types/episode";
+import type { TutorialRule } from "@/types/tutorial";
 import RuleBadges from "@/components/RuleBadges";
 import CodeBlock from "@/components/utility/CodeBlock";
 
-function AccordionItem({ label, good, bad, code }: EpisodeRule) {
+function AccordionItem({ label, good, bad, code }: TutorialRule) {
   const [open, setOpen] = useState(false);
   const bodyId = useId();
 
@@ -35,7 +35,7 @@ function AccordionItem({ label, good, bad, code }: EpisodeRule) {
   );
 }
 
-export default function Accordion({ rules }: { rules: EpisodeRule[] }) {
+export default function Accordion({ rules }: { rules: TutorialRule[] }) {
   return (
     <div className="accordion">
       {rules.map((rule) => (

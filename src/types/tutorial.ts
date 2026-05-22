@@ -1,25 +1,25 @@
 export type DemoKey = "labeling" | "grouping" | "customControls" | "validation";
 
-export interface EpisodeRule {
+export interface TutorialRule {
   label: string;
   good: string;
   bad: string;
   code: string;
 }
 
-export interface EpisodeChecklistItem {
+export interface TutorialChecklistItem {
   item: string;
 }
 
-export interface EpisodeMetadata {
+export interface TutorialMetadata {
   title: string;
   subtitle?: string;
   description: string;
 }
 
-export interface Episode {
-  metadata: EpisodeMetadata;
-  rules: EpisodeRule[];
-  checklist: EpisodeChecklistItem[];
+export interface Tutorial {
+  metadata: TutorialMetadata;
+  rules: TutorialRule[];
+  checklist: TutorialChecklistItem[];
   demos: DemoKey[];
 }

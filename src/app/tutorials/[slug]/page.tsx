@@ -4,9 +4,9 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import type { ReactNode, ComponentType } from "react";
 
-import type { Episode, DemoKey } from "@/types/episode";
+import type { Tutorial, DemoKey } from "@/types/tutorial";
 import Accordion from "@/components/Accordion";
-import EpisodeHeader from "@/components/EpisodeHeader";
+import TutorialHeader from "@/components/TutorialHeader";
 import SectionHeading from "@/components/SectionHeading";
 import Divider from "@/components/utility/Divider";
 import LabelingDemo from "@/components/demos/LabelingDemo";
@@ -36,7 +36,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const filePath = join(contentDir, `${slug}.json`);
   if (!existsSync(filePath)) return {};
-  const { metadata } = JSON.parse(readFileSync(filePath, "utf-8")) as Episode;
+  const { metadata } = JSON.parse(readFileSync(filePath, "utf-8")) as Tutorial;
   return { title: metadata.title, description: metadata.description };
 }
 
@@ -103,12 +103,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const filePath = join(contentDir, `${slug}.json`);
   if (!existsSync(filePath)) notFound();
 
-  const episode = JSON.parse(readFileSync(filePath, "utf-8")) as Episode;
-  const { metadata, rules, checklist, demos } = episode;
+  const tutorial = JSON.parse(readFileSync(filePath, "utf-8")) as Tutorial;
+  const { metadata, rules, checklist, demos } = tutorial;
 
   return (
-    <div className="episode__wrapper">
-      <EpisodeHeader metadata={metadata} />
+    <div className="tutorial__wrapper">
+      <TutorialHeader metadata={metadata} />
 
       {/* ── Main ── */}
       <main className="container">

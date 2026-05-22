@@ -142,7 +142,7 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-              <a className="btn" href="/episodes" aria-label="Go to Tutorials Page">
+              <a className="btn" href="/tutorials" aria-label="Go to Tutorials Page">
                 Tutorials Page
               </a>
             </div>
