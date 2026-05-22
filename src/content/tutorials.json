@@ -4,8 +4,15 @@
       "title": "Forms",
       "description": "Accessible Forms covers everything you need to build forms that work for everyone — keyboard users and screen reader users included. Topics span labeling inputs correctly, grouping related controls with fieldset and role=\"group\", wiring up hints and error messages with ARIA, and building custom controls that behave like their native counterparts. Includes live interactive demos for each concept.",
       "icon": "fa-brands fa-wpforms",
-      "ruleButtonAria": "Go to form accessibility tutorial",
-      "youTubeButtonAria": "Go to form accessibility YouTube tutorial"
+      "rulesLink": {
+        "href": "/tutorials/forms",
+        "ariaLabel": "Go to form accessibility tutorial"
+      },
+
+      "youTubeLink": {
+        "href": "https://www.youtube.com/@AccessibleAriel",
+        "ariaLabel": "Go to form accessibility YouTube tutorial"
+      }
     }
   ]
 }

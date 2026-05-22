@@ -6,17 +6,6 @@ const thumbnailUrl = "/images/accessibility-header.jpg";
 const animatedPortrait = "/images/animated-portrait.png";
 
 export default function Home() {
-  useEffect(() => {
-    // Example:
-    // $(".some-slider").slick();
-    // new WOW().init();
-
-    return () => {
-      // destroy/cleanup plugin if the library supports it
-      // $(".some-slider").slick("unslick");
-    };
-  }, []);
-  console.log("%csrc/app/page.tsx:4 thumbnailUrl", "color: #007acc;", thumbnailUrl);
   return (
     <div className="home-page">
       <section id="intro" className="section section-bg-img section-bg-overlay section-bottom-rise">
@@ -55,7 +44,10 @@ export default function Home() {
         <canvas id="particles"></canvas>
       </section>
 
-      <section id="about" className="section section-bg-light section-top-rise section-bottom-rise">
+      <section
+        id="about"
+        className="portfolio-about section section-bg-light section-top-rise section-bottom-rise"
+      >
         <div className="section-inner">
           <div className="container">
             <header className="heading">
@@ -132,10 +124,18 @@ export default function Home() {
                     <h3>{tutorial.title}</h3>
                     <p>{tutorial.description}</p>
                     <div className="tutorial-actions">
-                      <a className="btn btn-s" aria-label={tutorial.ruleButtonAria}>
+                      <a
+                        className="btn btn-s"
+                        href={tutorial.rulesLink.href}
+                        aria-label={tutorial.rulesLink.ariaLabel}
+                      >
                         Read The Rules
                       </a>
-                      <a className="btn btn-s" aria-label={tutorial.youTubeButtonAria}>
+                      <a
+                        className="btn btn-s"
+                        href={tutorial.youTubeLink.href}
+                        aria-label={tutorial.youTubeLink.ariaLabel}
+                      >
                         Watch Tutorial
                       </a>
                     </div>

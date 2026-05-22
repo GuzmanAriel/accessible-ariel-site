@@ -32,6 +32,12 @@
       font-size: 18px;
     }
 
+    &:focus-visible {
+      border: 3px solid var(--brand-yellow);
+      // outline-offset: -3px;
+      outline: none !important;
+    }
+
     &.accordion--open .accordion__icon {
       transform: rotate(45deg);
     }
@@ -42,6 +48,10 @@
     color: var(--brand-yellow);
     flex-shrink: 0;
     transition: transform 0.2s;
+  }
+
+  &__content {
+    margin-top: 10px;
   }
 
   &__content > div {
