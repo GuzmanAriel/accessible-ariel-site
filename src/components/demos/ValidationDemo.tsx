@@ -72,7 +72,7 @@ export default function ValidationDemo() {
     return e;
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     const errs = validate();
     setErrors(errs);
