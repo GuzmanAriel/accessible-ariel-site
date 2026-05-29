@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, readdirSync } from "fs";
+import { existsSync, readFileSync } from "fs";
 import { join } from "path";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -21,9 +21,12 @@ const contentDir = join(process.cwd(), "src/content");
 // ─── Static params ────────────────────────────────────────────────────────────
 
 export function generateStaticParams() {
-  return readdirSync(contentDir)
-    .filter((f) => f.endsWith(".json"))
-    .map((f) => ({ slug: f.replace(/\.json$/, "") }));
+  const { tutorials } = JSON.parse(
+    readFileSync(join(contentDir, "tutorials.json"), "utf-8")
+  ) as { tutorials: { rulesLink: { href: string } }[] };
+  return tutorials.map(({ rulesLink }) => ({
+    slug: rulesLink.href.split("/").pop() as string,
+  }));
 }
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
