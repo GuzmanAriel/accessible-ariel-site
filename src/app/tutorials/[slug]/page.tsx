@@ -77,7 +77,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         {resolvedDemos.map(({ Component, dividerLabel, heading, description, card }) => {
           const inner = <Component />;
           return (
-            <div key={dividerLabel}>
+            <div key={dividerLabel} className="tutorial__section">
               <Divider label={dividerLabel} />
               <section aria-labelledby={dividerLabel}>
                 <SectionHeading id={dividerLabel} heading={heading} subheading={description} />
