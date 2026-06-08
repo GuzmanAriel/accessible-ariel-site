@@ -23,6 +23,10 @@ const contentDir = join(process.cwd(), "src/content");
 export function generateStaticParams() {
   return readdirSync(contentDir)
     .filter((f) => f.endsWith(".json"))
+    .filter((f) => {
+      const data = JSON.parse(readFileSync(join(contentDir, f), "utf-8"));
+      return "metadata" in data;
+    })
     .map((f) => ({ slug: f.replace(/\.json$/, "") }));
 }
 

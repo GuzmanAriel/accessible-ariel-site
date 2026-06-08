@@ -1,5 +1,45 @@
 "use client";
-import { useState, useId, useRef } from "react";
+import { useState, useId, useRef, useEffect } from "react";
+import type { ReactNode } from "react";
+
+interface FieldProps {
+  label: string;
+  hint?: string;
+  error?: string;
+  required?: boolean;
+  id: string;
+  children: ReactNode;
+}
+
+function Field({ label, hint, error, required, children, id }: FieldProps) {
+  return (
+    <div className="validation-demo__field">
+      <label className="validation-demo__label" htmlFor={id}>
+        {label}
+        {required && (
+          <span aria-hidden="true" className="validation-demo__required-star">
+            *
+          </span>
+        )}
+        {required && <span className="sr-only"> (required)</span>}
+      </label>
+
+      {hint && (
+        <span id={`${id}-hint`} className="validation-demo__hint">
+          {hint}
+        </span>
+      )}
+
+      {children}
+
+      {error && (
+        <span id={`${id}-error`} className="validation-demo__error-msg">
+          <span aria-hidden="true">⚠</span> {error}
+        </span>
+      )}
+    </div>
+  );
+}
 
 export default function AccessibleForm() {
   const nameId = useId();
@@ -9,6 +49,7 @@ export default function AccessibleForm() {
   const agreeId = useId();
 
   const errorSummaryRef = useRef<HTMLDivElement>(null);
+  const successRef = useRef<HTMLDivElement>(null);
 
   const [values, setValues] = useState({
     name: "",
@@ -31,10 +72,13 @@ export default function AccessibleForm() {
     return e;
   }
 
+  useEffect(() => {
+    if (submitted) successRef.current?.focus();
+  }, [submitted]);
+
   function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     const errs = validate();
-    console.log("%csrc/components/form/AccessibleForm.tsx:39 errs", "color: #007acc;", errs);
     setErrors(errs);
 
     if (Object.keys(errs).length === 0) {
@@ -56,6 +100,23 @@ export default function AccessibleForm() {
 
   return (
     <>
+      {submitted && (
+        <div ref={successRef} tabIndex={-1} className="validation-demo__success">
+          <div className="validation-demo__success-icon">✓</div>
+          <strong className="validation-demo__success-title">Registered successfully!</strong>
+          <p className="validation-demo__success-desc">Announced automatically via focus</p>
+          <button
+            className="validation-demo__reset"
+            onClick={() => {
+              setSubmitted(false);
+              setValues({ name: "", email: "", role: "", bio: "", agree: false });
+              setErrors({});
+            }}
+          >
+            Reset
+          </button>
+        </div>
+      )}
       <div className="validation-demo__instructions">
         <strong className="validation-demo__instructions-title">Before you begin:</strong>
         <ul className="validation-demo__instructions-list">
@@ -97,37 +158,69 @@ export default function AccessibleForm() {
             <legend className="validation-demo__legend">Personal Information</legend>
             <div className="validation-demo__fields">
               <div className="validation-demo__field">
-                <label className="validation-demo__label" htmlFor={nameId}>
-                  Full Name
-                </label>
-                <input
-                  id={nameId}
-                  type="text"
-                  autoComplete="name"
-                  className="validation-demo__input"
-                  value={values.name}
-                  onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
-                />
+                <Field label="Full Name" id={nameId} required error={errors.name}>
+                  <input
+                    id={nameId}
+                    required
+                    type="text"
+                    autoComplete="name"
+                    className={`validation-demo__input${errors.name ? " validation-demo__input--error" : ""}`}
+                    aria-required="true"
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? `${nameId}-error` : undefined}
+                    value={values.name}
+                    onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
+                  />
+                </Field>
               </div>
 
               <div className="validation-demo__field">
-                <label className="validation-demo__label" htmlFor={emailId}>
-                  Email Address
-                </label>
-                <input
+                <Field
+                  label="Email Address"
                   id={emailId}
-                  type="email"
-                  autoComplete="email"
-                  className="validation-demo__input"
-                  value={values.email}
-                  onChange={(e) => setValues((v) => ({ ...v, email: e.target.value }))}
-                />
+                  required
+                  hint="We'll never share your email."
+                  error={errors.email}
+                >
+                  <input
+                    id={emailId}
+                    type="email"
+                    autoComplete="email"
+                    aria-required="true"
+                    aria-invalid={!!errors.email}
+                    aria-describedby={[errors.email ? `${emailId}-error` : null, `${emailId}-hint`]
+                      .filter(Boolean)
+                      .join(" ")}
+                    className={`validation-demo__input${errors.email ? " validation-demo__input--error" : ""}`}
+                    value={values.email}
+                    onChange={(e) => setValues((v) => ({ ...v, email: e.target.value }))}
+                  />
+                </Field>
               </div>
             </div>
           </fieldset>
 
-          <fieldset className="validation-demo__fieldset">
-            <legend className="validation-demo__legend">Your Role</legend>
+          <fieldset
+            className={`validation-demo__fieldset${errors.role ? " validation-demo__fieldset--error" : ""}`}
+          >
+            <legend
+              className={`validation-demo__legend${errors.role ? " validation-demo__legend--error" : ""}`}
+            >
+              Your Role
+              <span aria-hidden="true" className="validation-demo__required-star">
+                *
+              </span>
+              <span className="sr-only"> (required)</span>
+            </legend>
+
+            {errors.role && (
+              <span
+                id={`${roleId}-error`}
+                className="validation-demo__error-msg validation-demo__error-msg--inline"
+              >
+                {errors.role}
+              </span>
+            )}
             <div className="validation-demo__options">
               {["Developer", "Designer", "Product Manager", "Other"].map((r) => (
                 <label key={r} className="validation-demo__option">
@@ -138,6 +231,8 @@ export default function AccessibleForm() {
                     value={r}
                     checked={values.role === r}
                     onChange={() => setValues((v) => ({ ...v, role: r }))}
+                    aria-required="true"
+                    aria-describedby={errors.role ? `${roleId}-error` : undefined}
                   />
                   {r}
                 </label>
@@ -146,16 +241,16 @@ export default function AccessibleForm() {
           </fieldset>
 
           <div className="validation-demo__field">
-            <label className="validation-demo__label" htmlFor={bioId}>
-              Bio
-            </label>
-            <textarea
-              value={values.bio}
-              id={bioId}
-              rows={3}
-              className="validation-demo__textarea"
-              onChange={(e) => setValues((v) => ({ ...v, bio: e.target.value }))}
-            />
+            <Field label="Bio" id={bioId} hint="Optional — max 200 characters.">
+              <textarea
+                value={values.bio}
+                id={bioId}
+                rows={3}
+                className="validation-demo__textarea"
+                onChange={(e) => setValues((v) => ({ ...v, bio: e.target.value }))}
+                aria-describedby={`${bioId}-hint`}
+              />
+            </Field>
           </div>
 
           <div className="validation-demo__agree">
@@ -165,6 +260,9 @@ export default function AccessibleForm() {
                 type="checkbox"
                 className="validation-demo__agree-checkbox"
                 checked={values.agree}
+                aria-required="true"
+                aria-invalid={!!errors.agree}
+                aria-describedby={errors.agree ? `${agreeId}-error` : undefined}
                 onChange={(e) => setValues((v) => ({ ...v, agree: e.target.checked }))}
               />
               <label htmlFor={agreeId} className="validation-demo__agree-label">
@@ -172,8 +270,18 @@ export default function AccessibleForm() {
                 <a href="#" className="validation-demo__agree-link">
                   terms and conditions
                 </a>
+                <span aria-hidden="true" className="validation-demo__agree-star">
+                  {""}*
+                </span>
+                <span className="sr-only"> (required)</span>
               </label>
             </div>
+
+            {errors.agree && (
+              <span id={`${agreeId}-error`} className="validation-demo__error-msg">
+                <span aria-hidden="true">⚠ </span> {errors.agree}
+              </span>
+            )}
           </div>
 
           <button type="submit" className="validation-demo__submit">

@@ -24,6 +24,7 @@
 .DS_Store
 *.pem
 VIDEO_SCRIPT.md
+VIDEO_SCRIPT_WALKTHROUGH.md
 
 # debug
 npm-debug.log*
