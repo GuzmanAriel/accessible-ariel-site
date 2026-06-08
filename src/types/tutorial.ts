@@ -1,21 +1,10 @@
-export type DemoKey =
-  // Forms
-  | "labeling"
-  | "grouping"
-  | "customControls"
-  | "validation"
-  // ARIA — visual explainers
-  | "ariaIntro"
-  | "acronym"
-  | "accessibilityTree"
-  | "rolesPropertiesStates"
-  | "goldenRule"
-  | "divVsButton"
-  // ARIA — interactive demos
-  | "customDropdown"
-  | "liveRegion"
-  | "iconButton"
-  | "commonMistakes";
+export interface DemoEntry {
+  component: string;
+  dividerLabel: string;
+  heading: string;
+  description: string;
+  card?: boolean;
+}
 
 export interface TutorialRule {
   label: string;
@@ -38,5 +27,5 @@ export interface Tutorial {
   metadata: TutorialMetadata;
   rules: TutorialRule[];
   checklist: TutorialChecklistItem[];
-  demos: DemoKey[];
+  demos: DemoEntry[];
 }

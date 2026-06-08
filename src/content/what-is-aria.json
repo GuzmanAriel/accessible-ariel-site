@@ -60,15 +60,65 @@
     { "item": "ARIA does not add behavior — keyboard handlers must be coded manually" }
   ],
   "demos": [
-    "ariaIntro",
-    "acronym",
-    "accessibilityTree",
-    "rolesPropertiesStates",
-    "goldenRule",
-    "divVsButton",
-    "customDropdown",
-    "liveRegion",
-    "iconButton",
-    "commonMistakes"
+    {
+      "component": "aria/AriaIntroSection",
+      "dividerLabel": "In This Tutorial",
+      "heading": "What We'll Cover",
+      "description": "A quick overview of the three concepts ARIA gives you control over."
+    },
+    {
+      "component": "aria/AcronymSection",
+      "dividerLabel": "Breaking Down the Name",
+      "heading": "ARIA Stands For…",
+      "description": "Accessible Rich Internet Applications — a W3C specification for enriching the accessibility tree."
+    },
+    {
+      "component": "aria/AccessibilityTreeSection",
+      "dividerLabel": "How Screen Readers See Your Page",
+      "heading": "The Accessibility Tree",
+      "description": "Screen readers don't see your page visually. They navigate a parallel structure called the accessibility tree."
+    },
+    {
+      "component": "aria/RolesPropertiesStatesSection",
+      "dividerLabel": "The Three ARIA Concepts",
+      "heading": "Roles, Properties & States",
+      "description": "Everything ARIA can do falls into one of these three categories."
+    },
+    {
+      "component": "aria/GoldenRuleSection",
+      "dividerLabel": "The Most Important Rule",
+      "heading": "The First Rule of ARIA",
+      "description": "Native HTML elements already carry roles, properties, and states for free. Prefer them."
+    },
+    {
+      "component": "aria/DivVsButtonSection",
+      "dividerLabel": "ARIA Adds Semantics, Not Behavior",
+      "heading": "div[role=button] vs <button>",
+      "description": "Using ARIA on a div doesn't give it keyboard support. You still have to wire everything yourself."
+    },
+    {
+      "component": "aria/CustomDropdownDemo",
+      "dividerLabel": "Demo: Custom Interactive Components",
+      "heading": "Custom Dropdown",
+      "description": "No native HTML element covers a styled listbox. Use aria-haspopup, aria-expanded, and role=listbox to describe the pattern — then watch the state inspector as you interact."
+    },
+    {
+      "component": "aria/LiveRegionDemo",
+      "dividerLabel": "Demo: Dynamic Content Updates",
+      "heading": "Live Regions",
+      "description": "When content changes without a page reload, use aria-live so screen readers announce the update. Type in the search box — a screen reader would announce the result count automatically."
+    },
+    {
+      "component": "aria/IconButtonDemo",
+      "dividerLabel": "Demo: Labeling Icon-Only Controls",
+      "heading": "Icon Button Labels",
+      "description": "An icon button with no visible text needs aria-label. Without it, a screen reader just says 'button' with no context."
+    },
+    {
+      "component": "aria/CommonMistakesDemo",
+      "dividerLabel": "Common Mistakes to Avoid",
+      "heading": "What Not to Do",
+      "description": "Four rapid-fire patterns that break accessibility — with the correct alternative for each."
+    }
   ]
 }

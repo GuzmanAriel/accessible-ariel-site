@@ -142,5 +142,31 @@
       "item": "Placeholder text is supplementary only, never the sole label"
     }
   ],
-  "demos": ["labeling", "grouping", "customControls", "validation"]
+  "demos": [
+    {
+      "component": "LabelingDemo",
+      "dividerLabel": "Demo: Labeling Controls",
+      "heading": "Labeling Controls",
+      "description": "A visible label linked with htmlFor gives every input an accessible name. Placeholders are never a substitute."
+    },
+    {
+      "component": "GroupingDemo",
+      "dividerLabel": "Demo: Grouping Controls",
+      "heading": "Grouping Controls",
+      "description": "Radios, checkboxes, and related fields need semantic grouping so screen readers announce the group name alongside each control."
+    },
+    {
+      "component": "CustomControlsDemo",
+      "dividerLabel": "Demo: Custom Controls",
+      "heading": "Custom Controls",
+      "description": "When native elements won't do, add role, aria-checked, and keyboard handlers so custom widgets behave like their native counterparts."
+    },
+    {
+      "component": "ValidationDemo",
+      "dividerLabel": "Demo: Instructions + Validation + Notifications",
+      "heading": "Full Form — All Together",
+      "description": "Pre-form instructions, fieldset grouping, inline hints, aria-invalid, a focusable error summary, and a live-region success message. Submit empty to see validation in action.",
+      "card": true
+    }
+  ]
 }
