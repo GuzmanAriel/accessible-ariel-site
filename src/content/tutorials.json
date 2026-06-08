@@ -8,10 +8,22 @@
         "href": "/tutorials/forms",
         "ariaLabel": "Go to form accessibility tutorial"
       },
-
       "youTubeLink": {
         "href": "https://www.youtube.com/@AccessibleAriel",
         "ariaLabel": "Go to form accessibility YouTube tutorial"
+      }
+    },
+    {
+      "title": "What is ARIA?",
+      "description": "A concise guide to Accessible Rich Internet Applications — what ARIA is, when to use it, and when native HTML is the better choice. Covers roles, properties, and states with live visual demos.",
+      "icon": "fa-solid fa-universal-access",
+      "rulesLink": {
+        "href": "/tutorials/what-is-aria",
+        "ariaLabel": "Go to ARIA tutorial"
+      },
+      "youTubeLink": {
+        "href": "https://www.youtube.com/@AccessibleAriel",
+        "ariaLabel": "Go to ARIA YouTube tutorial"
       }
     }
   ]

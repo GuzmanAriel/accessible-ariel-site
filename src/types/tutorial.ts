@@ -1,4 +1,21 @@
-export type DemoKey = "labeling" | "grouping" | "customControls" | "validation";
+export type DemoKey =
+  // Forms
+  | "labeling"
+  | "grouping"
+  | "customControls"
+  | "validation"
+  // ARIA — visual explainers
+  | "ariaIntro"
+  | "acronym"
+  | "accessibilityTree"
+  | "rolesPropertiesStates"
+  | "goldenRule"
+  | "divVsButton"
+  // ARIA — interactive demos
+  | "customDropdown"
+  | "liveRegion"
+  | "iconButton"
+  | "commonMistakes";
 
 export interface TutorialRule {
   label: string;

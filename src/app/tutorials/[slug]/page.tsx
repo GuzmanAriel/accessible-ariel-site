@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, readdirSync } from "fs";
+import { existsSync, readFileSync } from "fs";
 import { join } from "path";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -9,10 +9,26 @@ import Accordion from "@/components/Accordion";
 import TutorialHeader from "@/components/TutorialHeader";
 import SectionHeading from "@/components/SectionHeading";
 import Divider from "@/components/utility/Divider";
+
+// Forms demos
 import LabelingDemo from "@/components/demos/LabelingDemo";
 import GroupingDemo from "@/components/demos/GroupingDemo";
 import CustomControlsDemo from "@/components/demos/CustomControlsDemo";
 import ValidationDemo from "@/components/demos/ValidationDemo";
+
+// ARIA — visual explainer sections
+import AriaIntroSection from "@/components/demos/aria/AriaIntroSection";
+import AcronymSection from "@/components/demos/aria/AcronymSection";
+import AccessibilityTreeSection from "@/components/demos/aria/AccessibilityTreeSection";
+import RolesPropertiesStatesSection from "@/components/demos/aria/RolesPropertiesStatesSection";
+import GoldenRuleSection from "@/components/demos/aria/GoldenRuleSection";
+import DivVsButtonSection from "@/components/demos/aria/DivVsButtonSection";
+
+// ARIA — interactive demos
+import CustomDropdownDemo from "@/components/demos/aria/CustomDropdownDemo";
+import LiveRegionDemo from "@/components/demos/aria/LiveRegionDemo";
+import IconButtonDemo from "@/components/demos/aria/IconButtonDemo";
+import CommonMistakesDemo from "@/components/demos/aria/CommonMistakesDemo";
 
 export const dynamicParams = false;
 
@@ -21,13 +37,12 @@ const contentDir = join(process.cwd(), "src/content");
 // ─── Static params ────────────────────────────────────────────────────────────
 
 export function generateStaticParams() {
-  return readdirSync(contentDir)
-    .filter((f) => f.endsWith(".json"))
-    .filter((f) => {
-      const data = JSON.parse(readFileSync(join(contentDir, f), "utf-8"));
-      return "metadata" in data;
-    })
-    .map((f) => ({ slug: f.replace(/\.json$/, "") }));
+  const { tutorials } = JSON.parse(readFileSync(join(contentDir, "tutorials.json"), "utf-8")) as {
+    tutorials: { rulesLink: { href: string } }[];
+  };
+  return tutorials.map(({ rulesLink }) => ({
+    slug: rulesLink.href.split("/").pop() as string,
+  }));
 }
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
@@ -55,6 +70,7 @@ type DemoEntry = {
 };
 
 const demoMap: Record<DemoKey, DemoEntry> = {
+  // ── Forms ──────────────────────────────────────────────────────────────────
   labeling: {
     dividerLabel: "Demo: Labeling Controls",
     heading: "Labeling Controls",
@@ -96,6 +112,92 @@ const demoMap: Record<DemoKey, DemoEntry> = {
     ),
     Component: ValidationDemo,
     card: true,
+  },
+
+  // ── ARIA — visual explainers ───────────────────────────────────────────────
+  ariaIntro: {
+    dividerLabel: "In This Tutorial",
+    heading: "What We'll Cover",
+    description: "A quick overview of the three concepts ARIA gives you control over.",
+    Component: AriaIntroSection,
+  },
+  acronym: {
+    dividerLabel: "Breaking Down the Name",
+    heading: "ARIA Stands For…",
+    description:
+      "Accessible Rich Internet Applications — a W3C specification for enriching the accessibility tree.",
+    Component: AcronymSection,
+  },
+  accessibilityTree: {
+    dividerLabel: "How Screen Readers See Your Page",
+    heading: "The Accessibility Tree",
+    description:
+      "Screen readers don't see your page visually. They navigate a parallel structure called the accessibility tree.",
+    Component: AccessibilityTreeSection,
+  },
+  rolesPropertiesStates: {
+    dividerLabel: "The Three ARIA Concepts",
+    heading: "Roles, Properties & States",
+    description: "Everything ARIA can do falls into one of these three categories.",
+    Component: RolesPropertiesStatesSection,
+  },
+  goldenRule: {
+    dividerLabel: "The Most Important Rule",
+    heading: "The First Rule of ARIA",
+    description:
+      "Native HTML elements already carry roles, properties, and states for free. Prefer them.",
+    Component: GoldenRuleSection,
+  },
+  divVsButton: {
+    dividerLabel: "ARIA Adds Semantics, Not Behavior",
+    heading: "div[role=button] vs <button>",
+    description:
+      "Using ARIA on a div doesn't give it keyboard support. You still have to wire everything yourself.",
+    Component: DivVsButtonSection,
+  },
+
+  // ── ARIA — interactive demos ───────────────────────────────────────────────
+  customDropdown: {
+    dividerLabel: "Demo: Custom Interactive Components",
+    heading: "Custom Dropdown",
+    description: (
+      <>
+        No native HTML element covers a styled listbox. Use <code>aria-haspopup</code>,{" "}
+        <code>aria-expanded</code>, and <code>role=&quot;listbox&quot;</code> to describe the
+        pattern — then watch the state inspector as you interact.
+      </>
+    ),
+    Component: CustomDropdownDemo,
+  },
+  liveRegion: {
+    dividerLabel: "Demo: Dynamic Content Updates",
+    heading: "Live Regions",
+    description: (
+      <>
+        When content changes without a page reload, use <code>aria-live</code> so screen readers
+        announce the update. Type in the search box — a screen reader would announce the result
+        count automatically.
+      </>
+    ),
+    Component: LiveRegionDemo,
+  },
+  iconButton: {
+    dividerLabel: "Demo: Labeling Icon-Only Controls",
+    heading: "Icon Button Labels",
+    description: (
+      <>
+        An icon button with no visible text needs <code>aria-label</code>. Without it, a screen
+        reader just says &ldquo;button&rdquo; with no context.
+      </>
+    ),
+    Component: IconButtonDemo,
+  },
+  commonMistakes: {
+    dividerLabel: "Common Mistakes to Avoid",
+    heading: "What Not to Do",
+    description:
+      "Four rapid-fire patterns that break accessibility — with the correct alternative for each.",
+    Component: CommonMistakesDemo,
   },
 };
 
@@ -155,12 +257,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         })}
 
         {/* Checklist */}
-        <Divider label="Full WAI Checklist" />
+        <Divider label="Full ARIA Checklist" />
         <section aria-labelledby="check-h">
           <SectionHeading
             id="check-h"
-            heading="Full WAI Checklist"
-            subheading="Every requirement from the W3C WAI Forms Tutorial, mapped to code patterns."
+            heading="Full ARIA Checklist"
+            subheading="Every rule from this tutorial, mapped to the pattern it covers."
           />
           <ul
             style={{

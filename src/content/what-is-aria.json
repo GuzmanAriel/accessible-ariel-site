@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "title": "What is ARIA?",
+    "subtitle": "Roles, Properties & States",
+    "description": "ARIA lets you influence the accessibility tree directly — but only use it when native HTML isn't enough."
+  },
+  "rules": [
+    {
+      "label": "Don't use ARIA if you don't have to",
+      "good": "Native HTML handles roles, states, and keyboard for free",
+      "bad": "ARIA adds semantics only — not behavior or keyboard support",
+      "code": "// ✓ Native button — keyboard, focus, and announcement included\n<button onClick={handleClick}>Submit</button>\n\n// ✗ div 'button' — you still wire up all keyboard events yourself\n<div role=\"button\" tabIndex={0}\n  onClick={handleClick}\n  onKeyDown={e => {\n    if (e.key === 'Enter' || e.key === ' ') handleClick();\n  }}\n>\n  Submit\n</div>"
+    },
+    {
+      "label": "Use role to define what an element is",
+      "good": "Screen reader announces element type correctly",
+      "bad": "Generic div/span with no semantic meaning",
+      "code": "// ✓ Custom listbox — role tells SR what this is\n<ul role=\"listbox\" aria-labelledby=\"list-label\">\n  <li role=\"option\" aria-selected={selected === 'a'}>Option A</li>\n  <li role=\"option\" aria-selected={selected === 'b'}>Option B</li>\n</ul>\n\n// ✓ Custom dialog\n<div role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"dialog-title\">\n  <h2 id=\"dialog-title\">Confirm action</h2>\n</div>"
+    },
+    {
+      "label": "Use aria-label or aria-labelledby to name elements",
+      "good": "SR announces a meaningful name for the control",
+      "bad": "Icon-only button announced as just 'button'",
+      "code": "// ✓ Icon button with aria-label\n<button aria-label=\"Close dialog\">\n  <svg aria-hidden=\"true\"><!-- × icon --></svg>\n</button>\n\n// ✓ aria-labelledby points to visible text\n<section aria-labelledby=\"section-title\">\n  <h2 id=\"section-title\">Recent Activity</h2>\n</section>"
+    },
+    {
+      "label": "Use aria-describedby to attach hints and errors",
+      "good": "Hint text is read after the label when the field is focused",
+      "bad": "Hint is visible but completely ignored by assistive tech",
+      "code": "<label htmlFor=\"pw\">Password</label>\n<span id=\"pw-hint\">Must be at least 8 characters.</span>\n<input\n  id=\"pw\"\n  type=\"password\"\n  aria-describedby=\"pw-hint\"\n/>"
+    },
+    {
+      "label": "Keep aria state in sync with visual state",
+      "good": "SR announces the correct current state on every change",
+      "bad": "aria-expanded stays 'false' while the menu is visually open",
+      "code": "const [open, setOpen] = useState(false);\n\n<button\n  aria-haspopup=\"listbox\"\n  aria-expanded={open}\n  onClick={() => setOpen(o => !o)}\n>\n  Choose option\n</button>\n\n<ul role=\"listbox\" hidden={!open}>\n  ...\n</ul>"
+    },
+    {
+      "label": "Use aria-live for dynamic content updates",
+      "good": "Screen reader announces the change without user navigating to it",
+      "bad": "UI updates silently — screen reader user has no idea",
+      "code": "// polite: waits for current speech to finish\n<div role=\"status\" aria-live=\"polite\">\n  {resultCount !== null && `Showing ${resultCount} results`}\n</div>\n\n// assertive: interrupts immediately — use sparingly\n<div role=\"alert\" aria-live=\"assertive\">\n  {errorMessage}\n</div>"
+    },
+    {
+      "label": "Never use aria-hidden on focusable elements",
+      "good": "Hidden decorative elements are skipped by SR without blocking keyboard",
+      "bad": "aria-hidden on a focusable element creates a keyboard trap",
+      "code": "// ✓ Hide decorative icon from SR — it's not focusable\n<svg aria-hidden=\"true\" focusable=\"false\">...</svg>\n\n// ✗ Never hide something keyboard users can still reach\n<button aria-hidden=\"true\">Submit</button>"
+    }
+  ],
+  "checklist": [
+    { "item": "Prefer native HTML elements over ARIA whenever possible" },
+    { "item": "role defines what the element is to assistive technology" },
+    { "item": "aria-label / aria-labelledby gives every interactive element an accessible name" },
+    { "item": "aria-describedby links hints, instructions, and errors to their input" },
+    { "item": "aria-expanded, aria-checked, aria-selected stay in sync with visual state" },
+    { "item": "aria-live regions announce dynamic content changes" },
+    { "item": "aria-hidden never applied to focusable elements" },
+    { "item": "Custom widgets implement full keyboard interaction (arrow keys, Enter, Escape)" },
+    { "item": "ARIA does not add behavior — keyboard handlers must be coded manually" }
+  ],
+  "demos": [
+    "ariaIntro",
+    "acronym",
+    "accessibilityTree",
+    "rolesPropertiesStates",
+    "goldenRule",
+    "divVsButton",
+    "customDropdown",
+    "liveRegion",
+    "iconButton",
+    "commonMistakes"
+  ]
+}
