@@ -34,8 +34,14 @@ export default function Home() {
               </header>
 
               <div data-wow-delay="0.1s" className="wow fadeInUp">
-                <a href="#contacts" className="btn btn-bordered btn-go">
-                  Let's get to work
+                <a
+                  href="https://www.youtube.com/channel/UCXyWMPTSpyTtSslAKMQmWqg"
+                  className="btn btn-bordered btn-go"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit my YouTube channel, opens in new tab"
+                >
+                  Visit my channel
                 </a>
               </div>
             </div>
@@ -135,6 +141,8 @@ export default function Home() {
                         className="btn btn-s"
                         href={tutorial.youTubeLink.href}
                         aria-label={tutorial.youTubeLink.ariaLabel}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         Watch Tutorial
                       </a>
