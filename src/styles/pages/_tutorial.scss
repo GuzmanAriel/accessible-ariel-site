@@ -37,6 +37,10 @@
   @include typography.text-subtitle;
 }
 
+.tutorial__header-actions {
+  margin-top: 24px;
+}
+
 .tutorial__header-design {
   display: none;
 

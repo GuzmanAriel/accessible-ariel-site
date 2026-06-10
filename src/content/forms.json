@@ -1,7 +1,11 @@
 {
   "metadata": {
     "title": "Accessible Forms",
-    "description": "W3C WAI form tutorial topics: labeling, grouping, instructions, validation, notifications, and custom controls."
+    "description": "W3C WAI form tutorial topics: labeling, grouping, instructions, validation, notifications, and custom controls.",
+    "youTubeLink": {
+      "href": "https://www.youtube.com/watch?v=ogUgiJR5YbM",
+      "ariaLabel": "Watch the accessible forms YouTube tutorial, opens in new tab"
+    }
   },
   "rules": [
     {

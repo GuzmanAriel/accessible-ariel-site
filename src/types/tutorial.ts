@@ -21,6 +21,10 @@ export interface TutorialMetadata {
   title: string;
   subtitle?: string;
   description: string;
+  youTubeLink?: {
+    href: string;
+    ariaLabel: string;
+  };
 }
 
 export interface Tutorial {
