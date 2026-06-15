@@ -88,17 +88,17 @@ export default function Home() {
                 </p>
                 <ul className="social-nav">
                   <li>
-                    <a href="https://github.com/GuzmanAriel">
+                    <a href="https://github.com/GuzmanAriel" target="_blank" rel="noopener noreferrer">
                       <i className="fa fa-github"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.linkedin.com/in/ariel-guzman-6bbb9797/">
+                    <a href="https://www.linkedin.com/in/ariel-guzman-6bbb9797/" target="_blank" rel="noopener noreferrer">
                       <i className="fa fa-linkedin"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.youtube.com/@AccessibleAriel">
+                    <a href="https://www.youtube.com/@AccessibleAriel4" target="_blank" rel="noopener noreferrer">
                       <i className="fa-brands fa-youtube"></i>
                     </a>
                   </li>

@@ -21,9 +21,9 @@ const contentDir = join(process.cwd(), "src/content");
 // ─── Static params ────────────────────────────────────────────────────────────
 
 export function generateStaticParams() {
-  const { tutorials } = JSON.parse(
-    readFileSync(join(contentDir, "tutorials.json"), "utf-8")
-  ) as { tutorials: { rulesLink: { href: string } }[] };
+  const { tutorials } = JSON.parse(readFileSync(join(contentDir, "tutorials.json"), "utf-8")) as {
+    tutorials: { rulesLink: { href: string } }[];
+  };
   return tutorials.map(({ rulesLink }) => ({
     slug: rulesLink.href.split("/").pop() as string,
   }));

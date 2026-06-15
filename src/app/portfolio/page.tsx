@@ -1,6 +1,5 @@
 "use client";
 import { useEffect } from "react";
-import Image from "next/image";
 import experiencessData from "@/content/experience.json";
 import projectsData from "@/content/projects.json";
 import ModalList from "@/components/ModalList";
@@ -18,7 +17,7 @@ export default function Home() {
       // $(".some-slider").slick("unslick");
     };
   }, []);
-  console.log("%csrc/app/page.tsx:4 thumbnailUrl", "color: #007acc;", thumbnailUrl);
+
   return (
     <div className="home-page">
       <section id="intro" className="section section-bg-img section-bg-overlay section-bottom-rise">
@@ -96,17 +95,29 @@ export default function Home() {
                 </p>
                 <ul className="social-nav">
                   <li>
-                    <a href="https://github.com/GuzmanAriel">
+                    <a
+                      href="https://github.com/GuzmanAriel"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fa fa-github"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.linkedin.com/in/ariel-guzman-6bbb9797/">
+                    <a
+                      href="https://www.linkedin.com/in/ariel-guzman-6bbb9797/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fa fa-linkedin"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.youtube.com/@AccessibleAriel">
+                    <a
+                      href="https://www.youtube.com/@AccessibleAriel4"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fa-brands fa-youtube"></i>
                     </a>
                   </li>
