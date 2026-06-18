@@ -77,6 +77,23 @@ export default function CustomDropdownDemo() {
         {/* Live demo */}
         <div className="custom-dropdown-demo__panel">
           <p className="custom-dropdown-demo__panel-label">Live demo</p>
+          {/* State inspector */}
+          <div className="custom-dropdown-demo__state" aria-live="polite" aria-atomic="true">
+            <span className="custom-dropdown-demo__state-item">
+              <code>aria-expanded</code>
+              <span
+                className={`custom-dropdown-demo__badge custom-dropdown-demo__badge--${open ? "true" : "false"}`}
+              >
+                {String(open)}
+              </span>
+            </span>
+            <span className="custom-dropdown-demo__state-item">
+              <code>aria-selected</code>
+              <span className="custom-dropdown-demo__badge custom-dropdown-demo__badge--neutral">
+                {selected ? `"${selected}"` : "none"}
+              </span>
+            </span>
+          </div>
           <div className="custom-dropdown-demo__widget" onKeyDown={handleKeyDown}>
             <button
               id={buttonId}
@@ -129,24 +146,6 @@ export default function CustomDropdownDemo() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* State inspector */}
-          <div className="custom-dropdown-demo__state" aria-live="polite" aria-atomic="true">
-            <span className="custom-dropdown-demo__state-item">
-              <code>aria-expanded</code>
-              <span
-                className={`custom-dropdown-demo__badge custom-dropdown-demo__badge--${open ? "true" : "false"}`}
-              >
-                {String(open)}
-              </span>
-            </span>
-            <span className="custom-dropdown-demo__state-item">
-              <code>aria-selected</code>
-              <span className="custom-dropdown-demo__badge custom-dropdown-demo__badge--neutral">
-                {selected ? `"${selected}"` : "none"}
-              </span>
-            </span>
           </div>
         </div>
 

@@ -212,6 +212,7 @@
     padding: 0.55rem 0.9rem;
     border-radius: 7px;
     border: 1.5px solid var(--border);
+    background: #fff;
     font-family: var(--font-body);
     font-size: 0.95rem;
     color: var(--ink);
@@ -385,6 +386,97 @@
 
     strong {
       color: var(--ink);
+    }
+  }
+}
+
+// ─── DescribingRelationshipsSection ──────────────────────────────────────────
+
+.describedby-demo {
+  &__panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    align-items: start;
+
+    @media (max-width: 680px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__panel-label {
+    @extend .demo-panel-label;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+  }
+
+  &__label {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  &__input {
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    border: 1.5px solid var(--border);
+    background: #fff;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s;
+    width: 100%;
+    box-sizing: border-box;
+
+    &:focus-visible {
+      border-color: var(--brand-blue);
+      outline: 3px solid var(--brand-yellow);
+      outline-offset: 2px;
+    }
+  }
+
+  &__hint {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin: 0.1rem 0 0;
+    line-height: 1.5;
+  }
+
+  &__announcement {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin: 0;
+    background: var(--tutorial-bg);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    border-left: 3px solid var(--border);
+    transition: border-color 0.2s, color 0.2s;
+
+    strong {
+      color: var(--ink);
+    }
+
+    &--active {
+      border-left-color: var(--brand-blue);
+      color: var(--secondary-blue);
     }
   }
 }

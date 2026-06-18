@@ -115,6 +115,12 @@
       "description": "An icon button with no visible text needs aria-label. Without it, a screen reader just says 'button' with no context."
     },
     {
+      "component": "aria/DescribingRelationshipsSection",
+      "dividerLabel": "Describing Relationships",
+      "heading": "aria-describedby",
+      "description": "Point to any element on the page and its text becomes a description — read automatically by screen readers when the associated input is focused."
+    },
+    {
       "component": "aria/CommonMistakesDemo",
       "dividerLabel": "Common Mistakes to Avoid",
       "heading": "What Not to Do",
