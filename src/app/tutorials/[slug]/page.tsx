@@ -2,17 +2,13 @@ import { existsSync, readFileSync } from "fs";
 import { join } from "path";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import type { ReactNode, ComponentType } from "react";
+import type { ComponentType } from "react";
 
-import type { Tutorial, DemoKey } from "@/types/tutorial";
+import type { Tutorial } from "@/types/tutorial";
 import Accordion from "@/components/Accordion";
 import TutorialHeader from "@/components/TutorialHeader";
 import SectionHeading from "@/components/SectionHeading";
 import Divider from "@/components/utility/Divider";
-import LabelingDemo from "@/components/demos/LabelingDemo";
-import GroupingDemo from "@/components/demos/GroupingDemo";
-import CustomControlsDemo from "@/components/demos/CustomControlsDemo";
-import ValidationDemo from "@/components/demos/ValidationDemo";
 
 export const dynamicParams = false;
 
@@ -43,61 +39,6 @@ export async function generateMetadata({
   return { title: metadata.title, description: metadata.description };
 }
 
-// ─── Demo map ─────────────────────────────────────────────────────────────────
-
-type DemoEntry = {
-  dividerLabel: string;
-  heading: string;
-  description: ReactNode;
-  Component: ComponentType;
-  card?: boolean;
-};
-
-const demoMap: Record<DemoKey, DemoEntry> = {
-  labeling: {
-    dividerLabel: "Demo: Labeling Controls",
-    heading: "Labeling Controls",
-    description: (
-      <>
-        A visible <code>&lt;label&gt;</code> linked with <code>htmlFor</code> gives every input an
-        accessible name. Placeholders are never a substitute.
-      </>
-    ),
-    Component: LabelingDemo,
-  },
-  grouping: {
-    dividerLabel: "Demo: Grouping Controls",
-    heading: "Grouping Controls",
-    description:
-      "Radios, checkboxes, and related fields need semantic grouping so screen readers announce the group name alongside each control.",
-    Component: GroupingDemo,
-  },
-  customControls: {
-    dividerLabel: "Demo: Custom Controls",
-    heading: "Custom Controls",
-    description: (
-      <>
-        When native elements won&apos;t do, add <code>role</code>, <code>aria-checked</code>, and
-        keyboard handlers so custom widgets behave like their native counterparts.
-      </>
-    ),
-    Component: CustomControlsDemo,
-  },
-  validation: {
-    dividerLabel: "Demo: Instructions + Validation + Notifications",
-    heading: "Full Form — All Together",
-    description: (
-      <>
-        Pre-form instructions, fieldset grouping, inline hints, <code>aria-invalid</code>, a
-        focusable error summary, and a live-region success message. Submit empty to see validation
-        in action.
-      </>
-    ),
-    Component: ValidationDemo,
-    card: true,
-  },
-};
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
@@ -108,6 +49,13 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
   const tutorial = JSON.parse(readFileSync(filePath, "utf-8")) as Tutorial;
   const { metadata, rules, checklist, demos } = tutorial;
+
+  const resolvedDemos = await Promise.all(
+    demos.map(async ({ component, ...meta }) => {
+      const mod = await import(`@/components/demos/${component}`);
+      return { Component: mod.default as ComponentType, ...meta };
+    })
+  );
 
   return (
     <div className="tutorial__wrapper">
@@ -126,14 +74,13 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         </section>
 
         {/* Demo sections — driven by the demos array in the JSON */}
-        {demos.map((key) => {
-          const { dividerLabel, heading, description, Component, card } = demoMap[key];
+        {resolvedDemos.map(({ Component, dividerLabel, heading, description, card }) => {
           const inner = <Component />;
           return (
-            <div key={key}>
+            <div key={dividerLabel} className="tutorial__section">
               <Divider label={dividerLabel} />
-              <section aria-labelledby={`${key}-h`}>
-                <SectionHeading id={`${key}-h`} heading={heading} subheading={description} />
+              <section aria-labelledby={dividerLabel}>
+                <SectionHeading id={dividerLabel} heading={heading} subheading={description} />
                 {card ? (
                   <div
                     style={{
@@ -154,12 +101,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         })}
 
         {/* Checklist */}
-        <Divider label="Full WAI Checklist" />
+        <Divider label="Full ARIA Checklist" />
         <section aria-labelledby="check-h">
           <SectionHeading
             id="check-h"
-            heading="Full WAI Checklist"
-            subheading="Every requirement from the W3C WAI Forms Tutorial, mapped to code patterns."
+            heading="Full ARIA Checklist"
+            subheading="Every rule from this tutorial, mapped to the pattern it covers."
           />
           <ul
             style={{

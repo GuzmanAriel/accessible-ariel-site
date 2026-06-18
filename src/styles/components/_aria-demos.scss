@@ -1,0 +1,520 @@
+// ─── Shared aria demo base ────────────────────────────────────────────────────
+
+.aria-demo-block {
+  margin-bottom: 2rem;
+}
+
+// ─── AriaIntroSection ─────────────────────────────────────────────────────────
+
+.aria-intro-section {
+  background: var(--brand-blue);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+
+  &__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 1rem;
+  }
+
+  &__divider {
+    width: 120px;
+    height: 5px;
+    background: var(--brand-yellow);
+    border-radius: 3px;
+    margin: 0 auto 2rem;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+    max-width: 400px;
+    margin-inline: auto;
+    text-align: left;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--brand-yellow);
+    color: var(--ink);
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  &__label {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    color: #fff;
+
+    &--highlight {
+      color: var(--brand-yellow);
+      font-style: italic;
+    }
+  }
+}
+
+// ─── AcronymSection ───────────────────────────────────────────────────────────
+
+.acronym-section {
+  background-color: var(--dark-blue);
+  text-align: center;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__letters {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 4vw, 3rem);
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__letter {
+    font-family: var(--font-heading);
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    font-weight: 800;
+    color: var(--brand-yellow);
+    line-height: 1;
+  }
+
+  &__word {
+    font-family: var(--font-body);
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    color: var(--brand-yellow);
+    font-weight: 500;
+    border-top: 3px solid var(--brand-yellow);
+    padding-top: 0.4rem;
+  }
+
+  &__subtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--brand-yellow);
+    font-style: italic;
+    max-width: 560px;
+    margin-inline: auto;
+    line-height: 1.6;
+  }
+}
+
+// ─── AccessibilityTreeSection ─────────────────────────────────────────────────
+
+.a11y-tree-section {
+  &__panels {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1rem;
+    align-items: center;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__panel {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(37, 99, 196, 0.1);
+
+    &--tree {
+      border-color: var(--brand-yellow);
+      background: var(--dark-blue);
+    }
+  }
+
+  &__panel-header {
+    padding: 0.6rem 1rem;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    .a11y-tree-section__panel & {
+      background: var(--brand-blue);
+      color: #fff;
+    }
+
+    .a11y-tree-section__panel--tree & {
+      background: var(--brand-yellow);
+      color: var(--ink);
+    }
+  }
+
+  &__visual {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__visual-item {
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-align: center;
+
+    &--heading {
+      background: var(--brand-blue);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    &--nav,
+    &--text {
+      background: var(--tutorial-bg);
+      color: var(--ink);
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+    }
+
+    &--button {
+      background: var(--brand-yellow);
+      color: var(--ink);
+      font-weight: 700;
+      align-self: flex-start;
+    }
+  }
+
+  &__tree {
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  &__tree-item {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--border);
+    line-height: 1.5;
+
+    code {
+      font-family: inherit;
+      color: inherit;
+      background: none;
+    }
+
+    &:not(&--indent) {
+      color: var(--brand-yellow);
+    }
+
+    &--indent {
+      padding-left: 1.25rem;
+    }
+  }
+
+  &__arrow {
+    font-size: 1.5rem;
+    color: var(--muted);
+    text-align: center;
+
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
+
+  &__caption {
+    text-align: center;
+    margin-top: 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--secondary-blue);
+    font-style: italic;
+    font-weight: 500;
+  }
+}
+
+// ─── RolesPropertiesStatesSection ─────────────────────────────────────────────
+
+.rps-section {
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--brand-yellow);
+    background: var(--secondary-blue);
+  }
+
+  &__card-header {
+    background: var(--brand-yellow);
+    padding: 0.65rem 1rem;
+  }
+
+  &__card-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin: 0;
+    text-align: center;
+  }
+
+  &__card-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--border);
+    font-style: italic;
+    text-align: center;
+    margin: 0.6rem 0.75rem 0.25rem;
+  }
+
+  &__examples {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0.75rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__example {
+    background: var(--dark-blue);
+    border-radius: 6px;
+    padding: 0.45rem 0.6rem;
+    text-align: center;
+
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--brand-yellow);
+    }
+  }
+
+  &__footer {
+    text-align: center;
+    margin-top: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+}
+
+// ─── GoldenRuleSection ────────────────────────────────────────────────────────
+
+.golden-rule-section {
+  &__card {
+    background: var(--dark-blue);
+    border: 3px solid var(--brand-yellow);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__eyebrow {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brand-yellow);
+    margin: 0 0 0.75rem;
+  }
+
+  &__rule {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  &__check {
+    font-size: 1.2rem;
+    color: var(--brand-yellow);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  &__code {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    background: var(--dark-blue);
+    color: var(--brand-yellow);
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
+  }
+
+  &__label {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+}
+
+// ─── DivVsButtonSection ───────────────────────────────────────────────────────
+
+.dvb-section {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+
+  &__headers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    // Label column offset — matches row layout below
+    margin-left: 40%;
+
+    @media (max-width: 580px) {
+      margin-left: 0;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__col-header {
+    padding: 0.65rem 1rem;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    code {
+      font-family: inherit;
+      font-size: inherit;
+      color: #fff;
+    }
+
+    &--bad {
+      background: #ef4444;
+    }
+
+    &--good {
+      background: #22c55e;
+    }
+  }
+
+  &__rows {
+    margin: 0;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 40% 1fr 1fr;
+    border-top: 1px solid var(--border);
+    background: #fff;
+
+    &--alt {
+      background: var(--brand-cream);
+    }
+
+    &--highlight {
+      dt {
+        font-weight: 700;
+        color: var(--secondary-blue);
+      }
+    }
+
+    @media (max-width: 580px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  &__row-label {
+    padding: 0.7rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 580px) {
+      font-size: 0.75rem;
+      padding: 0.5rem 0.4rem;
+    }
+  }
+
+  &__row-div,
+  &__row-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem;
+    margin: 0;
+  }
+
+  &__icon {
+    font-size: 1.3rem;
+    font-weight: 700;
+
+    &--yes {
+      color: #22c55e;
+    }
+
+    &--no {
+      color: #ef4444;
+    }
+  }
+
+  &__footer {
+    background: var(--brand-blue);
+    color: #fff;
+    text-align: center;
+    padding: 0.65rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+}

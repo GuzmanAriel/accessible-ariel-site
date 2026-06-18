@@ -1,6 +1,10 @@
 @use "../typography" as typography;
 @use "../breakpoints" as breakpoint;
 
+.tutorial__section {
+  margin-top: 100px;
+}
+
 .tutorial__wrapper {
   min-height: 100vh;
   padding-bottom: 60px;

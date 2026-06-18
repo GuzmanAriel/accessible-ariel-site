@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(mv /Users/ag/Desktop/Personal/Projects/accessible-ariel-site/src/app/globals.css /Users/ag/Desktop/Personal/Projects/accessible-ariel-site/src/app/globals.scss)",
-      "Bash(mv /Users/ag/Desktop/Personal/Projects/accessible-ariel-site/src/app/page.module.css /Users/ag/Desktop/Personal/Projects/accessible-ariel-site/src/app/page.module.scss)",
-      "Bash(git commit -m ' *)"
-    ]
-  }
-}

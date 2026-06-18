@@ -1,4 +1,10 @@
-export type DemoKey = "labeling" | "grouping" | "customControls" | "validation";
+export interface DemoEntry {
+  component: string;
+  dividerLabel: string;
+  heading: string;
+  description: string;
+  card?: boolean;
+}
 
 export interface TutorialRule {
   label: string;
@@ -25,5 +31,5 @@ export interface Tutorial {
   metadata: TutorialMetadata;
   rules: TutorialRule[];
   checklist: TutorialChecklistItem[];
-  demos: DemoKey[];
+  demos: DemoEntry[];
 }
