@@ -16,6 +16,15 @@ export default function DescribingRelationshipsSection() {
 
   return (
     <div className="describedby-demo">
+      <div className="describedby-demo__video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/T-37JIwbLbY"
+          title="aria-describedby: Describing Relationships"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+
       <div className="describedby-demo__panels">
         {/* Live demo */}
         <div className="describedby-demo__panel">
