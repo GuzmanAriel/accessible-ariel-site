@@ -125,6 +125,12 @@
       "dividerLabel": "Common Mistakes to Avoid",
       "heading": "What Not to Do",
       "description": "Four rapid-fire patterns that break accessibility — with the correct alternative for each."
+    },
+    {
+      "component": "aria/WhatIsAriaVideo",
+      "dividerLabel": "Watch the Tutorial",
+      "heading": "Full Video Tutorial",
+      "description": "Watch the complete What is ARIA? tutorial on YouTube."
     }
   ]
 }
