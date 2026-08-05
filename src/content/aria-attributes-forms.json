@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "10 ARIA Attributes You'll Use Most in Forms",
+    "subtitle": "A Quick Reference",
+    "description": "Ten ARIA attributes that come up constantly when building accessible forms — what each one does, and when to reach for it. No fluff, just the reference."
+  },
+  "rules": [
+    {
+      "label": "aria-label — name a control without visible text",
+      "good": "Gives icon buttons, search inputs, and other visible-label-less controls an accessible name",
+      "bad": "Don't use alongside aria-labelledby — if visible text exists, point to it instead",
+      "code": "<button aria-label=\"Close dialog\">\n  <svg aria-hidden=\"true\"><!-- × --></svg>\n</button>"
+    },
+    {
+      "label": "aria-labelledby — point to existing visible text as the label",
+      "good": "Reuses a heading or existing label already in the DOM as the accessible name",
+      "bad": "Takes an ID (or space-separated IDs), not free text — pointing to the wrong element mislabels the control",
+      "code": "<section aria-labelledby=\"billing-heading\">\n  <h2 id=\"billing-heading\">Billing Address</h2>\n  {/* fields */}\n</section>"
+    },
+    {
+      "label": "aria-describedby — link hints and errors to a field",
+      "good": "Screen reader reads the label first, then the description when the field is focused",
+      "bad": "Can chain multiple IDs space-separated — forgetting to include both hint and error is a common miss",
+      "code": "<label htmlFor=\"pw\">Password</label>\n<input\n  id=\"pw\"\n  type=\"password\"\n  aria-describedby=\"pw-hint pw-error\"\n/>\n<p id=\"pw-hint\">Must be at least 8 characters.</p>\n<p id=\"pw-error\" role=\"alert\">Password is required.</p>"
+    },
+    {
+      "label": "aria-required — mark a field as required",
+      "good": "Makes sure every screen reader announces the field as required",
+      "bad": "Relying on the required HTML attribute alone isn't explicit enough in the accessibility tree",
+      "code": "<label htmlFor=\"email\">Email</label>\n<input\n  id=\"email\"\n  type=\"email\"\n  required\n  aria-required=\"true\"\n/>"
+    },
+    {
+      "label": "aria-invalid — mark a field as currently invalid",
+      "good": "Paired with aria-describedby, tells the screen reader what's wrong, not just that something is",
+      "bad": "Set to true when validation fails — set back to false, or remove it, once the user fixes it",
+      "code": "<input\n  type=\"email\"\n  aria-invalid={hasError}\n  aria-describedby=\"email-error\"\n/>\n<p id=\"email-error\" role=\"alert\">\n  Enter a valid email address.\n</p>"
+    },
+    {
+      "label": "aria-live — announce dynamic content changes",
+      "good": "polite waits for the user to finish what they're doing; assertive interrupts immediately",
+      "bad": "Reserve assertive for critical errors only, and mount the live region before the content changes",
+      "code": "<div role=\"status\" aria-live=\"polite\">\n  {submitted && \"Form submitted successfully!\"}\n</div>"
+    },
+    {
+      "label": "aria-atomic — read the whole live region, not just the changed part",
+      "good": "The full sentence is announced every time a live region updates, not just the changed node",
+      "bad": "Without it, a screen reader may only announce the part that changed — like just a number",
+      "code": "<div aria-live=\"polite\" aria-atomic=\"true\">\n  Showing {count} of {total} results\n</div>"
+    },
+    {
+      "label": "aria-expanded — show open/closed state on a trigger",
+      "good": "Belongs on the trigger, not the panel — keep it in sync with the visual open/closed state",
+      "bad": "One of the most common bugs in the wild: state left out of sync with the visible UI",
+      "code": "<button\n  aria-expanded={isOpen}\n  aria-controls=\"filter-panel\"\n>\n  Filters\n</button>\n<div id=\"filter-panel\" hidden={!isOpen}>\n  {/* filter fields */}\n</div>"
+    },
+    {
+      "label": "aria-controls — link a trigger to what it controls",
+      "good": "Lets some screen readers jump users directly from the trigger to the controlled region",
+      "bad": "Support is inconsistent across screen readers — don't rely on it alone, treat it as progressive enhancement",
+      "code": "<button aria-expanded={open} aria-controls=\"menu-list\">\n  Options\n</button>\n<ul id=\"menu-list\" role=\"listbox\" hidden={!open}>\n  {/* options */}\n</ul>"
+    },
+    {
+      "label": "aria-hidden — remove decorative content from the accessibility tree",
+      "good": "Decorative icons, dividers, and duplicate content are skipped by screen readers",
+      "bad": "Never on a focusable element, and never to hide error messages or instructions users need to act on",
+      "code": "<!-- Decorative icon — SR skips it -->\n<svg aria-hidden=\"true\" focusable=\"false\">...</svg>\n\n<!-- Label already reads \"Search\" — hide the redundant icon -->\n<button>\n  <svg aria-hidden=\"true\" focusable=\"false\"><!-- search icon --></svg>\n  Search\n</button>"
+    }
+  ],
+  "checklist": [
+    { "item": "aria-label — name a control without visible text" },
+    { "item": "aria-labelledby — point to existing visible text as the label" },
+    { "item": "aria-describedby — link hints and errors to a field" },
+    { "item": "aria-required — mark a field as required" },
+    { "item": "aria-invalid — mark a field as currently invalid" },
+    { "item": "aria-live — announce dynamic content changes" },
+    { "item": "aria-atomic — read the whole live region, not just the changed part" },
+    { "item": "aria-expanded — show open/closed state on a trigger" },
+    { "item": "aria-controls — link a trigger to what it controls" },
+    { "item": "aria-hidden — remove decorative content from the accessibility tree" }
+  ],
+  "demos": []
+}

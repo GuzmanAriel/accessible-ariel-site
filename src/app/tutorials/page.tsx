@@ -60,15 +60,17 @@ export default function Tutorials() {
                       >
                         Read The Rules
                       </a>
-                      <a
-                        className="btn btn-s"
-                        href={tutorial.youTubeLink.href}
-                        aria-label={tutorial.youTubeLink.ariaLabel}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Watch Tutorial
-                      </a>
+                      {tutorial.youTubeLink && (
+                        <a
+                          className="btn btn-s"
+                          href={tutorial.youTubeLink.href}
+                          aria-label={tutorial.youTubeLink.ariaLabel}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Watch Tutorial
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
