@@ -7,6 +7,10 @@
       "rulesLink": {
         "href": "/tutorials/aria-attributes-forms",
         "ariaLabel": "Go to the 10 ARIA attributes for forms reference guide"
+      },
+      "youTubeLink": {
+        "href": "https://www.youtube.com/watch?v=ZLfe4o5Q0_I&t=140s",
+        "ariaLabel": "Go to the 10 ARIA attributes YouTube tutorial, opens in new tab"
       }
     },
     {

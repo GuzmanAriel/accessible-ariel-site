@@ -20,12 +20,12 @@ export default function Tutorials() {
         <div className="section-inner">
           <div className="container">
             <div className="intro">
-              <header className="heading">
+              <div className="heading">
                 <h1 className="wow zoomIn">
                   <span className="name">Tutorials</span>
                 </h1>
                 <div className="separator"></div>
-              </header>
+              </div>
             </div>
           </div>
         </div>
@@ -38,10 +38,10 @@ export default function Tutorials() {
       >
         <div className="section-inner">
           <div className="container">
-            <header className="heading">
+            <div className="heading">
               <h2>All Tutorials</h2>
               <div className="separator"></div>
-            </header>
+            </div>
 
             <div className="tutorial">
               {tutorialsData.tutorials.map((tutorial) => (

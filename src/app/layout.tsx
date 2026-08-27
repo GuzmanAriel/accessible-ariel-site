@@ -36,7 +36,8 @@ export default function RootLayout({
     <html lang="en" className={`${syne.variable} ${dmSans.variable} ${sourceCodePro.variable}`}>
       <body>
         <Nav />
-        {children}
+        <main>{children}</main>
+
         <Script src="/scripts/jquery.min.js" strategy="beforeInteractive" />
 
         <Script src="/scripts/plugins/instafeed/instafeed.min.js" strategy="afterInteractive" />

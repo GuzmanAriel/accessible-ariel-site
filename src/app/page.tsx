@@ -18,7 +18,7 @@ export default function Home() {
         <div className="section-inner">
           <div className="container">
             <div className="intro">
-              <header className="heading">
+              <div className="heading">
                 <i data-wow-delay="0.1s" className="fa fa-4x fa-hand-peace-o wow fadeInDown"></i>
                 <h1 className="wow zoomIn">
                   <span className="name">
@@ -31,7 +31,7 @@ export default function Home() {
                   </span>
                 </h1>
                 <div className="separator"></div>
-              </header>
+              </div>
 
               <div data-wow-delay="0.1s" className="wow fadeInUp">
                 <a
@@ -56,10 +56,10 @@ export default function Home() {
       >
         <div className="section-inner">
           <div className="container">
-            <header className="heading">
+            <div className="heading">
               <h2>About</h2>
               <div className="separator"></div>
-            </header>
+            </div>
 
             <div className="row gap-20">
               <div className="wow bounceInLeft">
@@ -88,17 +88,29 @@ export default function Home() {
                 </p>
                 <ul className="social-nav">
                   <li>
-                    <a href="https://github.com/GuzmanAriel" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://github.com/GuzmanAriel"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fa fa-github"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.linkedin.com/in/ariel-guzman-6bbb9797/" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.linkedin.com/in/ariel-guzman-6bbb9797/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fa fa-linkedin"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.youtube.com/@AccessibleAriel4" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.youtube.com/@AccessibleAriel4"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fa-brands fa-youtube"></i>
                     </a>
                   </li>
@@ -115,10 +127,10 @@ export default function Home() {
       >
         <div className="section-inner">
           <div className="container">
-            <header className="heading">
+            <div className="heading">
               <h2>Tutorials</h2>
               <div className="separator"></div>
-            </header>
+            </div>
 
             <div className="tutorial">
               {tutorialsData.tutorials.map((tutorial) => (

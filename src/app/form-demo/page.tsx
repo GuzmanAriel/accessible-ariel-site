@@ -3,7 +3,7 @@ import AccessibleForm from "@/components/form/AccessibleForm";
 export default function FormDemoPage() {
   return (
     <div className="tutorial__wrapper">
-      <header className="tutorial__header">
+      <div className="tutorial__header">
         <div className="container">
           <p className="tutorial__header-eyebrow text-eyebrow">Code-Along</p>
           <h1 className="tutorial__header-title">Accessible Form</h1>
@@ -16,7 +16,7 @@ export default function FormDemoPage() {
           className="tutorial__header-design tutorial__header-design--front"
           aria-hidden="true"
         />
-      </header>
+      </div>
 
       <main className="container">
         <div

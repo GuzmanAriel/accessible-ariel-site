@@ -6,7 +6,7 @@ type TutorialHeaderProps = {
 
 export default function TutorialHeader({ metadata }: TutorialHeaderProps) {
   return (
-    <header className="tutorial__header">
+    <div className="tutorial__header">
       <div className="tutorial__header-design">
         <div className="tutorial__header-design--back" aria-hidden="true" />
         <div className="tutorial__header-design--front" aria-hidden="true" />
@@ -35,6 +35,6 @@ export default function TutorialHeader({ metadata }: TutorialHeaderProps) {
           </div>
         )}
       </div>
-    </header>
+    </div>
   );
 }

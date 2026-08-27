@@ -1,6 +1,6 @@
 export default function Nav() {
   return (
-    <div className="main-nav">
+    <header className="main-nav">
       <nav>
         <ul>
           <li>
@@ -25,6 +25,6 @@ export default function Nav() {
         <div className="line"></div>
         <div className="line"></div>
       </div>
-    </div>
+    </header>
   );
 }

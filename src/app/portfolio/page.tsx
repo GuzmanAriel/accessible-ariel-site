@@ -30,7 +30,7 @@ export default function Home() {
         <div className="section-inner">
           <div className="container">
             <div className="intro">
-              <header className="heading">
+              <div className="heading">
                 <i data-wow-delay="0.1s" className="fa fa-4x fa-hand-peace-o wow fadeInDown"></i>
                 <h1 className="wow zoomIn">
                   <span className="name">
@@ -43,7 +43,7 @@ export default function Home() {
                   </span>
                 </h1>
                 <div className="separator"></div>
-              </header>
+              </div>
 
               <div data-wow-delay="0.1s" className="wow fadeInUp">
                 <a href="mailto:guzmanariel525@gmail.com" className="btn btn-bordered btn-go">
@@ -62,10 +62,10 @@ export default function Home() {
       >
         <div className="section-inner">
           <div className="container">
-            <header className="heading">
+            <div className="heading">
               <h2>About</h2>
               <div className="separator"></div>
-            </header>
+            </div>
 
             <div className="row gap-20">
               <div className="wow bounceInLeft">
@@ -130,10 +130,10 @@ export default function Home() {
       <section id="projects" className="section section-top-rise section-bottom-fall">
         <div className="section-inner">
           <div className="container">
-            <header className="heading">
+            <div className="heading">
               <h2>Projects</h2>
               <div className="separator"></div>
-            </header>
+            </div>
 
             <ul className="filter">
               <li data-group="all" className="active">
@@ -226,10 +226,10 @@ export default function Home() {
       >
         <div className="section-inner">
           <div className="container">
-            <header className="heading">
+            <div className="heading">
               <h2>Experience</h2>
               <div className="separator"></div>
-            </header>
+            </div>
 
             <div className="tutorial">
               {experiencessData.experience.map((experience) => (
