@@ -1,7 +1,26 @@
+"use client";
+
+import { useId, useState } from "react";
+
 export default function Nav() {
+  const [open, setOpen] = useState(false);
+  const navId = useId();
+
   return (
-    <header className="main-nav">
-      <nav>
+    <header className={`main-nav ${open ? "main-nav--visible" : ""}`}>
+      <button
+        type="button"
+        className="btn-icon btn-nav"
+        aria-expanded={open}
+        aria-controls={navId}
+        aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+        onClick={() => setOpen((o) => !o)}
+      >
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
+      </button>
+      <nav id={navId} inert={!open}>
         <ul>
           <li>
             <a href="/">Home</a>
@@ -20,11 +39,6 @@ export default function Nav() {
           </li>
         </ul>
       </nav>
-      <div className="btn-icon btn-nav">
-        <div className="line"></div>
-        <div className="line"></div>
-        <div className="line"></div>
-      </div>
     </header>
   );
 }

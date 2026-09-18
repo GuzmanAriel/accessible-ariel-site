@@ -810,6 +810,10 @@ html[style*="margin-right"] .main-nav {
 .btn-nav {
   overflow: hidden;
   transition: 0.3s;
+  border: none;
+  padding: 0;
+  font: inherit;
+  box-sizing: border-box;
 }
 
 .btn-nav .line {
