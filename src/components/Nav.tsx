@@ -1,14 +1,23 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useRef, useState, type KeyboardEvent } from "react";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const navId = useId();
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  function handleKeyDown(e: KeyboardEvent<HTMLElement>) {
+    if (e.key === "Escape" && open) {
+      setOpen(false);
+      buttonRef.current?.focus(); // return focus to the toggle — the part everyone forgets
+    }
+  }
 
   return (
-    <header className={`main-nav ${open ? "main-nav--visible" : ""}`}>
+    <header className={`main-nav ${open ? "main-nav--visible" : ""}`} onKeyDown={handleKeyDown}>
       <button
+        ref={buttonRef}
         type="button"
         className="btn-icon btn-nav"
         aria-expanded={open}
