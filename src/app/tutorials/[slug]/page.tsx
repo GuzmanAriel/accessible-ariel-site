@@ -61,8 +61,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     <div className="tutorial__wrapper">
       <TutorialHeader metadata={metadata} />
 
-      {/* ── Main ── */}
-      <main className="container">
+      {/* ── Content ── */}
+      <div className="container">
         {/* Rules accordion */}
         <section aria-labelledby="rules-h" className="section__intro">
           <SectionHeading
@@ -126,7 +126,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             ))}
           </ul>
         </section>
-      </main>
+      </div>
     </div>
   );
 }
