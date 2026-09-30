@@ -18,7 +18,7 @@ export default function FormDemoPage() {
         />
       </div>
 
-      <main className="container">
+      <div className="container">
         <div
           style={{
             background: "#fff",
@@ -30,7 +30,7 @@ export default function FormDemoPage() {
         >
           <AccessibleForm />
         </div>
-      </main>
+      </div>
     </div>
   );
 }
