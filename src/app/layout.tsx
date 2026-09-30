@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Syne, DM_Sans, Source_Code_Pro } from "next/font/google";
 import "@/styles/globals.scss";
 import Nav from "@/components/Nav";
+import SkipLink from "@/components/SkipLink";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -35,8 +36,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${syne.variable} ${dmSans.variable} ${sourceCodePro.variable}`}>
       <body>
+        <SkipLink />
         <Nav />
-        <main>{children}</main>
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
 
         <Script src="/scripts/jquery.min.js" strategy="beforeInteractive" />
 
