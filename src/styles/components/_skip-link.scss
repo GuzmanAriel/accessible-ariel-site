@@ -29,5 +29,4 @@
 // The skip target receives focus programmatically; don't ring the whole page.
 #main-content:focus {
   outline: none;
-  border: 5px solid var(--dark-blue);
 }
