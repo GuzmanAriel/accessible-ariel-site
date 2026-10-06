@@ -1,9 +1,9 @@
-"use client";
-import { useEffect } from "react";
-import Image from "next/image";
+import type { CSSProperties } from "react";
+import RevealObserver from "@/components/utility/RevealObserver";
 import tutorialsData from "@/content/tutorials.json";
 const thumbnailUrl = "/images/accessibility-header.jpg";
 const animatedPortrait = "/images/animated-portrait.png";
+const introDelay = { "--reveal-delay": "0.1s" } as CSSProperties;
 
 export default function Home() {
   return (
@@ -19,8 +19,8 @@ export default function Home() {
           <div className="container">
             <div className="intro">
               <div className="heading">
-                <i data-wow-delay="0.1s" className="fa fa-4x fa-hand-peace-o wow fadeInDown"></i>
-                <h1 className="wow zoomIn">
+                <i data-intro="down" style={introDelay} className="fa fa-4x fa-hand-peace-o"></i>
+                <h1 data-intro="zoom">
                   <span className="name">
                     Accessible <span className="fn">Ariel</span>
                   </span>
@@ -33,7 +33,7 @@ export default function Home() {
                 <div className="separator"></div>
               </div>
 
-              <div data-wow-delay="0.1s" className="wow fadeInUp">
+              <div data-intro="up" style={introDelay}>
                 <a
                   href="https://www.youtube.com/channel/UCXyWMPTSpyTtSslAKMQmWqg"
                   className="btn btn-bordered btn-go"
@@ -62,7 +62,7 @@ export default function Home() {
             </div>
 
             <div className="row gap-20">
-              <div className="wow bounceInLeft">
+              <div data-reveal="left">
                 <div className="site-photo">
                   <img
                     src={animatedPortrait}
@@ -73,7 +73,7 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="wow bounceInRight">
+              <div data-reveal="right">
                 <h3>Exploring accessible frontend development</h3>
                 <p>
                   Accessible Ariel is a platform focused on building accessible UI components with
@@ -135,10 +135,10 @@ export default function Home() {
             <div className="tutorial">
               {tutorialsData.tutorials.map((tutorial) => (
                 <div className="tutorial-item" key={tutorial.title}>
-                  <div className="icon-b wow bounceIn">
+                  <div className="icon-b" data-reveal="fade">
                     <i className={tutorial.icon}></i>
                   </div>
-                  <div className="tutorial-item-inner wow bounceInRight">
+                  <div className="tutorial-item-inner" data-reveal="right">
                     <h3>{tutorial.title}</h3>
                     <p>{tutorial.description}</p>
                     <div className="tutorial-actions">
@@ -171,6 +171,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <RevealObserver />
     </div>
   );
 }
