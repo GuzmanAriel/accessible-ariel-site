@@ -100,7 +100,8 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <i className="fa fa-github"></i>
+                      <i className="fa fa-github" aria-hidden="true"></i>
+                      <span className="sr-only">GitHub</span>
                     </a>
                   </li>
                   <li>
@@ -109,7 +110,8 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <i className="fa fa-linkedin"></i>
+                      <i className="fa fa-linkedin" aria-hidden="true"></i>
+                      <span className="sr-only">LinkedIn</span>
                     </a>
                   </li>
                   <li>
@@ -118,7 +120,8 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <i className="fa-brands fa-youtube"></i>
+                      <i className="fa-brands fa-youtube" aria-hidden="true"></i>
+                      <span className="sr-only">YouTube</span>
                     </a>
                   </li>
                 </ul>
